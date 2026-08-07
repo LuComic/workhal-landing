@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Workhal Sketch — Chaos to Clarity</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./sketch-base.css" />
+		<style>
+			:root {
+				--teal: #00786f;
+				--ink: #172322;
+				--cream: #fffaf0;
+				--mint: #c9f2e5;
+				--blush: #ffe4de;
+				--muted: #5c6d69;
+				--line: #bac8c5;
+				--pad: clamp(72px, 9vw, 136px) clamp(20px, 5vw, 80px);
+			}
+			body {
+				font-family: 'Manrope', Arial, sans-serif;
+			}
+			h1,
+			h2,
+			h3 {
+				font-family: 'Manrope', sans-serif;
+				font-weight: 800;
+			}
+			.site-nav {
+				border-color: var(--ink);
+				background: white;
+			}
+			.side-label,
+			.status,
+			.phase b,
+			.compare-label {
+				font-family: 'Space Mono', monospace;
+			}
+			.hero-intro {
+				padding: clamp(66px, 8vw, 116px) clamp(20px, 5vw, 80px);
+				border-bottom: 1px solid var(--ink);
+				background: var(--cream);
+				text-align: center;
+			}
+			.hero-intro h1 {
+				max-width: 1050px;
+				margin: 0 auto 28px;
+				font-size: clamp(60px, 9vw, 136px);
+				line-height: 0.88;
+				letter-spacing: -0.075em;
+			}
+			.hero-intro h1 span {
+				color: var(--teal);
+			}
+			.hero-intro > p:not(.eyebrow) {
+				max-width: 58ch;
+				margin: 0 auto;
+				font-size: 19px;
+				line-height: 1.7;
+				color: var(--muted);
+			}
+			.transformation {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				min-height: 700px;
+				border-bottom: 1px solid var(--ink);
+			}
+			.side {
+				position: relative;
+				overflow: hidden;
+				padding: clamp(48px, 5vw, 78px);
+			}
+			.chaos {
+				border-right: 1px solid var(--ink);
+				background: var(--blush);
+			}
+			.clarity {
+				display: flex;
+				flex-direction: column;
+				background: var(--mint);
+			}
+			.clarity > p {
+				margin-bottom: 36px;
+			}
+			.side-label {
+				display: flex;
+				justify-content: space-between;
+				gap: 20px;
+				font-size: 13px;
+				font-weight: 600;
+			}
+			.side h2 {
+				position: relative;
+				z-index: 2;
+				max-width: 700px;
+				margin-top: clamp(58px, 8vw, 112px);
+				font-size: clamp(52px, 6.2vw, 96px);
+				line-height: 0.92;
+				letter-spacing: -0.065em;
+			}
+			.side > p {
+				position: relative;
+				z-index: 2;
+				max-width: 46ch;
+				font-size: 18px;
+				line-height: 1.65;
+			}
+			.scrap {
+				position: absolute;
+				display: block;
+				border: 1px solid var(--ink);
+				background: white;
+				padding: 13px 17px;
+				box-shadow: 4px 4px 0 var(--ink);
+				animation: scrapPulse 3.6s ease-in-out infinite alternate;
+				font:
+					700 11px 'Space Mono',
+					monospace;
+			}
+			.s1 {
+				right: 4%;
+				bottom: 28%;
+				transform: rotate(7deg);
+				background: var(--cream);
+			}
+			.s2 {
+				left: 8%;
+				bottom: 9%;
+				transform: rotate(-5deg);
+			}
+			.s3 {
+				right: 15%;
+				bottom: 6%;
+				transform: rotate(3deg);
+				background: var(--mint);
+			}
+			.s4 {
+				right: -3%;
+				top: 45%;
+				transform: rotate(-10deg);
+			}
+			.s2 {
+				animation-delay: -1s;
+			}
+			.s3 {
+				animation-delay: -2s;
+			}
+			@keyframes scrapPulse {
+				to {
+					box-shadow: 8px 8px 0 var(--ink);
+				}
+			}
+			.dashboard {
+				position: relative;
+				width: 100%;
+				margin-top: auto;
+				border: 2px solid var(--ink);
+				background: white;
+				box-shadow: 10px 10px 0 var(--teal);
+			}
+			.dash-top {
+				display: flex;
+				justify-content: space-between;
+				border-bottom: 1px solid var(--ink);
+				padding: 11px 13px;
+				font:
+					700 10px 'Space Mono',
+					monospace;
+			}
+			.dash-row {
+				display: grid;
+				grid-template-columns: 36px 1fr auto;
+				align-items: center;
+				gap: 13px;
+				border-bottom: 1px solid var(--line);
+				padding: 13px;
+				font-size: 12px;
+			}
+			.dash-row:last-child {
+				border-bottom: 0;
+			}
+			.dash-row b {
+				display: grid;
+				height: 32px;
+				place-items: center;
+				background: #dcefeb;
+			}
+			.dash-row em {
+				color: var(--muted);
+				font-style: normal;
+			}
+			.bridge {
+				display: grid;
+				grid-template-columns: auto minmax(0, 900px) auto;
+				align-items: center;
+				justify-content: center;
+				gap: clamp(20px, 4vw, 56px);
+				padding: clamp(72px, 9vw, 130px) 24px;
+				border-bottom: 1px solid var(--ink);
+				background: var(--cream);
+				text-align: center;
+			}
+			.bridge h2 {
+				margin: 0;
+				font-size: clamp(46px, 6.5vw, 96px);
+				line-height: 0.98;
+				letter-spacing: -0.06em;
+			}
+			.bridge .arrow {
+				color: var(--teal);
+				font-size: clamp(42px, 6vw, 82px);
+			}
+			.bridge .actions {
+				justify-content: center;
+			}
+			.noise {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				border-bottom: 1px solid var(--ink);
+				background: white;
+			}
+			.noise-item {
+				min-height: 250px;
+				border-right: 1px solid var(--ink);
+				padding: clamp(24px, 3vw, 42px);
+			}
+			.noise-item:last-child {
+				border-right: 0;
+			}
+			.noise-item .x {
+				color: var(--teal);
+				font:
+					700 28px 'Space Mono',
+					monospace;
+			}
+			.noise-item h3 {
+				margin-top: 62px;
+				font-size: 25px;
+				line-height: 1.1;
+			}
+			.noise-item p {
+				color: var(--muted);
+				font-size: 14px;
+				line-height: 1.6;
+			}
+			.product {
+				display: grid;
+				grid-template-columns: 0.7fr 1.3fr;
+				gap: clamp(40px, 7vw, 110px);
+				padding: var(--pad);
+				border-bottom: 1px solid var(--ink);
+				background: #f4f8f7;
+			}
+			.product-copy {
+				align-self: center;
+			}
+			.product h2 {
+				margin-bottom: 28px;
+				font-size: clamp(50px, 6vw, 88px);
+				letter-spacing: -0.06em;
+			}
+			.product-copy > p {
+				max-width: 52ch;
+				color: var(--muted);
+				font-size: 18px;
+				line-height: 1.7;
+			}
+			.check-list {
+				margin: 36px 0 0;
+				padding: 0;
+				list-style: none;
+			}
+			.check-list li {
+				border-top: 1px solid var(--ink);
+				padding: 15px 0;
+				font-weight: 700;
+			}
+			.check-list span {
+				display: inline-block;
+				width: 30px;
+				color: var(--teal);
+			}
+			.product-window {
+				border: 2px solid var(--ink);
+				background: white;
+				box-shadow: 14px 14px 0 var(--ink);
+			}
+			.window-top {
+				display: flex;
+				justify-content: space-between;
+				border-bottom: 1px solid var(--ink);
+				padding: 12px 15px;
+				font:
+					700 10px 'Space Mono',
+					monospace;
+			}
+			.window-body {
+				display: grid;
+				grid-template-columns: 120px 1fr;
+				min-height: 520px;
+			}
+			.window-nav {
+				border-right: 1px solid var(--ink);
+				background: #f0f4f3;
+				padding: 20px 12px;
+			}
+			.window-nav span {
+				display: block;
+				margin-bottom: 6px;
+				padding: 9px;
+				font-size: 10px;
+			}
+			.window-nav span:first-child {
+				background: #d5ebe8;
+				font-weight: 800;
+			}
+			.window-main {
+				padding: clamp(20px, 3vw, 36px);
+			}
+			.today {
+				background: var(--teal);
+				color: white;
+				padding: 24px;
+			}
+			.today small {
+				font:
+					400 10px 'Space Mono',
+					monospace;
+			}
+			.today h3 {
+				margin: 8px 0 5px;
+				font-size: 27px;
+				letter-spacing: -0.04em;
+			}
+			.tile-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 10px;
+				margin-top: 12px;
+			}
+			.tile {
+				min-height: 112px;
+				border: 1px solid var(--ink);
+				padding: 14px;
+			}
+			.tile b {
+				display: block;
+				margin-bottom: 7px;
+				font-size: 12px;
+			}
+			.tile small {
+				color: var(--muted);
+			}
+			.phases {
+				padding: var(--pad);
+				border-bottom: 1px solid var(--ink);
+				background: white;
+			}
+			.phases-head {
+				display: grid;
+				grid-template-columns: 1fr 0.55fr;
+				gap: 48px;
+				align-items: end;
+				margin-bottom: 58px;
+			}
+			.phases h2 {
+				max-width: 870px;
+				margin: 0;
+				font-size: clamp(50px, 7vw, 98px);
+				letter-spacing: -0.065em;
+			}
+			.phases-head p {
+				max-width: 44ch;
+				margin: 0;
+				color: var(--muted);
+				line-height: 1.65;
+			}
+			.phase-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+			}
+			.phase {
+				display: flex;
+				min-height: 360px;
+				flex-direction: column;
+				border: 1px solid var(--ink);
+				border-right: 0;
+				padding: 30px;
+			}
+			.phase:last-child {
+				border-right: 1px solid var(--ink);
+			}
+			.phase:nth-child(1) {
+				background: var(--blush);
+			}
+			.phase:nth-child(2) {
+				background: var(--cream);
+			}
+			.phase:nth-child(3) {
+				background: var(--mint);
+			}
+			.phase b {
+				font-size: 13px;
+				font-weight: 600;
+			}
+			.phase h3 {
+				margin: auto 0 16px;
+				font-size: 34px;
+			}
+			.phase p {
+				max-width: 36ch;
+				margin: 0;
+				line-height: 1.6;
+			}
+			.compare {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				border-bottom: 1px solid var(--ink);
+			}
+			.compare > div {
+				padding: var(--pad);
+			}
+			.compare > div:first-child {
+				border-right: 1px solid var(--ink);
+				background: var(--ink);
+				color: white;
+			}
+			.compare-label {
+				font-size: 13px;
+				font-weight: 600;
+			}
+			.compare h2 {
+				margin: 54px 0 26px;
+				font-size: clamp(44px, 5vw, 76px);
+			}
+			.compare p {
+				max-width: 48ch;
+				line-height: 1.7;
+				opacity: 0.78;
+			}
+			.compare ul {
+				margin: 40px 0 0;
+				padding: 0;
+				list-style: none;
+			}
+			.compare li {
+				display: flex;
+				justify-content: space-between;
+				gap: 20px;
+				border-top: 1px solid currentColor;
+				padding: 17px 0;
+				font-weight: 600;
+			}
+			.compare li span {
+				font-family: 'Space Mono', monospace;
+			}
+			.quote {
+				padding: clamp(92px, 12vw, 180px) clamp(20px, 7vw, 110px);
+				border-bottom: 1px solid var(--ink);
+				background: var(--teal);
+				color: white;
+			}
+			.quote blockquote {
+				max-width: 22ch;
+				margin: 0;
+				font-size: clamp(46px, 6.5vw, 94px);
+				font-weight: 800;
+				line-height: 1.04;
+				letter-spacing: -0.06em;
+			}
+			.quote cite {
+				display: block;
+				margin-top: 34px;
+				font:
+					700 11px 'Space Mono',
+					monospace;
+				font-style: normal;
+				letter-spacing: 0.06em;
+			}
+			.faq {
+				display: grid;
+				grid-template-columns: 0.65fr 1.35fr;
+				gap: clamp(48px, 8vw, 130px);
+				padding: var(--pad);
+				border-bottom: 1px solid var(--ink);
+				background: var(--cream);
+			}
+			.faq h2 {
+				font-size: clamp(48px, 6vw, 82px);
+			}
+			.questions {
+				border-top: 1px solid var(--ink);
+			}
+			.question {
+				border-bottom: 1px solid var(--ink);
+			}
+			.question summary {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 20px;
+				padding: 23px 0;
+				font-size: 17px;
+				font-weight: 700;
+				cursor: pointer;
+				list-style: none;
+			}
+			.question summary::-webkit-details-marker {
+				display: none;
+			}
+			.question summary::after {
+				content: '+';
+				color: var(--teal);
+				font:
+					700 22px 'Space Mono',
+					monospace;
+				transition: transform 180ms ease;
+			}
+			.question[open] summary::after {
+				transform: rotate(45deg);
+			}
+			.question p {
+				max-width: 58ch;
+				margin: -4px 0 23px;
+				color: var(--muted);
+				line-height: 1.65;
+			}
+			.swatches {
+				grid-template-columns: repeat(4, minmax(65px, 1fr));
+			}
+			.final-cta {
+				padding: clamp(96px, 12vw, 180px) clamp(20px, 5vw, 80px);
+				border-bottom: 1px solid var(--ink);
+				background: var(--mint);
+				text-align: center;
+			}
+			.final-cta .status {
+				display: inline-block;
+				border: 1px solid var(--ink);
+				background: white;
+				padding: 8px 12px;
+				box-shadow: 4px 4px 0 var(--teal);
+				font-size: 10px;
+				font-weight: 700;
+			}
+			.final-cta h2 {
+				max-width: 16ch;
+				margin: 36px auto 30px;
+				font-size: clamp(58px, 9vw, 132px);
+				letter-spacing: -0.07em;
+			}
+			.final-cta p {
+				max-width: 52ch;
+				margin: 0 auto 28px;
+				font-size: 18px;
+				line-height: 1.65;
+			}
+			.type-note {
+				margin-top: 18px;
+				color: var(--muted);
+				font-size: 12px;
+			}
+			@media (max-width: 900px) {
+				.transformation,
+				.product,
+				.phases-head,
+				.compare,
+				.faq {
+					grid-template-columns: 1fr;
+				}
+				.chaos {
+					border-right: 0;
+					border-bottom: 1px solid var(--ink);
+				}
+				.side {
+					min-height: 650px;
+				}
+				.noise {
+					grid-template-columns: repeat(2, 1fr);
+				}
+				.noise-item:nth-child(2) {
+					border-right: 0;
+				}
+				.compare > div:first-child {
+					border-right: 0;
+					border-bottom: 1px solid var(--ink);
+				}
+				.phase-grid {
+					grid-template-columns: 1fr;
+				}
+				.phase,
+				.phase:last-child {
+					min-height: 270px;
+					border-right: 1px solid var(--ink);
+					border-bottom: 0;
+				}
+				.phase:last-child {
+					border-bottom: 1px solid var(--ink);
+				}
+			}
+			@media (max-width: 600px) {
+				.bridge {
+					grid-template-columns: 1fr;
+				}
+				.bridge .arrow {
+					transform: rotate(90deg);
+				}
+				.noise {
+					grid-template-columns: 1fr;
+				}
+				.noise-item,
+				.noise-item:nth-child(2) {
+					border-right: 0;
+					border-bottom: 1px solid var(--ink);
+				}
+				.window-body {
+					grid-template-columns: 1fr;
+				}
+				.window-nav {
+					display: none;
+				}
+				.tile-grid {
+					grid-template-columns: 1fr;
+				}
+				.side-label span:last-child {
+					display: none;
+				}
+				.scrap {
+					font-size: 9px;
+				}
+				.hero-intro h1 {
+					font-size: clamp(48px, 14vw, 64px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="sketch-tag">Refined sketch · chaos to clarity</div>
+		<nav class="site-nav">
+			<a class="brand" href="#top"><span class="brand-mark">w</span>workhal</a>
+			<div class="nav-links">
+				<a href="#before-after">Before / after</a><a href="#product">Product</a
+				><a href="#questions">Questions</a
+				><button class="button" type="button" data-open-dialog="signup-dialog">
+					Choose clarity →
+				</button>
+			</div>
+		</nav>
+		<main id="top">
+			<section class="hero-intro">
+				<p class="eyebrow">A calmer way to run the everyday</p>
+				<h1>Turn scattered information into <span>useful direction.</span></h1>
+				<p>
+					Workhal gives workplace know-how, updates and plans one clear home, so the team spends
+					less time finding and more time doing.
+				</p>
+			</section>
+			<section class="transformation" id="before-after">
+				<div class="side chaos">
+					<div class="side-label"><span>Before Workhal</span></div>
+					<h2>“Where was that again?”</h2>
+					<p>Chats, folders, paper notes, old files—and the same question asked every shift.</p>
+					<span class="scrap s1">schedule_final_v4.xlsx</span
+					><span class="scrap s2">Can someone resend it?</span
+					><span class="scrap s3">New pin: 1842</span><span class="scrap s4">Which folder?</span>
+				</div>
+				<div class="side clarity">
+					<div class="side-label"><span>With Workhal</span></div>
+					<h2>Everything has a home.</h2>
+					<p>One current, searchable place that makes sense to managers and employees alike.</p>
+					<div class="dashboard">
+						<div class="dash-top"><span>Today / North Street</span><span>Mon 14 Apr</span></div>
+						<div class="dash-row">
+							<b>!</b><strong>Delivery entrance update</strong><em>Now</em>
+						</div>
+						<div class="dash-row"><b>↗</b><strong>Opening checklist</strong><em>8 steps</em></div>
+						<div class="dash-row"><b>◷</b><strong>Team training</strong><em>14:00</em></div>
+						<div class="dash-row"><b>?</b><strong>Common questions</strong><em>12 answers</em></div>
+					</div>
+				</div>
+			</section>
+			<section class="bridge">
+				<span class="arrow">→</span>
+				<div>
+					<p class="eyebrow">The transformation is practical</p>
+					<h2>Not more information. Better information flow.</h2>
+					<div class="actions">
+						<a class="button" href="#product">See the clear side ↓</a
+						><a class="button secondary" href="#start">Start with Workhal</a>
+					</div>
+				</div>
+				<span class="arrow">→</span>
+			</section>
+			<section class="noise">
+				<article class="noise-item">
+					<span class="x">×</span>
+					<h3>The latest file is not obvious</h3>
+					<p>Old copies linger in inboxes and shared folders.</p>
+				</article>
+				<article class="noise-item">
+					<span class="x">×</span>
+					<h3>Updates disappear in chat</h3>
+					<p>Important notices compete with everyday conversation.</p>
+				</article>
+				<article class="noise-item">
+					<span class="x">×</span>
+					<h3>Knowledge lives in people</h3>
+					<p>The answer depends on who happens to be working.</p>
+				</article>
+				<article class="noise-item">
+					<span class="x">×</span>
+					<h3>Every shift starts from zero</h3>
+					<p>The same context has to be explained again and again.</p>
+				</article>
+			</section>
+			<section class="product" id="product">
+				<div class="product-copy">
+					<p class="eyebrow">One calm front page</p>
+					<h2>See the day before the day gets busy.</h2>
+					<p>
+						The employee view surfaces what matters now, while keeping guides, dates, documents and
+						answers within easy reach.
+					</p>
+					<ul class="check-list">
+						<li><span>✓</span> Current information first</li>
+						<li><span>✓</span> Stable places for recurring knowledge</li>
+						<li><span>✓</span> Search instead of asking around</li>
+						<li><span>✓</span> A focused mobile-friendly layout</li>
+					</ul>
+				</div>
+				<div class="product-window">
+					<div class="window-top"><span>Workhal / Employee view</span><span>Search ⌕</span></div>
+					<div class="window-body">
+						<aside class="window-nav">
+							<span>▣ Today</span><span>□ Guides</span><span>□ Calendar</span><span>□ Updates</span
+							><span>□ Files</span>
+						</aside>
+						<div class="window-main">
+							<div class="today">
+								<small>Monday, 14 April</small>
+								<h3>Today at North Street</h3>
+								<small>Current updates, useful times and practical guides.</small>
+							</div>
+							<div class="tile-grid">
+								<div class="tile">
+									<b>☀ Opening checklist</b><small>Front of house · 8 steps</small>
+								</div>
+								<div class="tile"><b>! Entrance update</b><small>Active until 16:00</small></div>
+								<div class="tile"><b>◷ Training</b><small>14:00 · Back office</small></div>
+								<div class="tile"><b>↗ Till reset guide</b><small>5 minute read</small></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="phases">
+				<div class="phases-head">
+					<div>
+						<p class="eyebrow">The route to clear</p>
+						<h2>Three changes, not a giant transformation project.</h2>
+					</div>
+					<p>
+						Start with the information employees already need. Workhal gives it structure and a
+						dependable publishing rhythm.
+					</p>
+				</div>
+				<div class="phase-grid">
+					<article class="phase">
+						<b>01 / Gather</b>
+						<h3>Move the useful things in.</h3>
+						<p>
+							Collect guides, recurring answers, important dates and current notices from where they
+							are scattered.
+						</p>
+					</article>
+					<article class="phase">
+						<b>02 / Organize</b>
+						<h3>Give each thing a purpose.</h3>
+						<p>
+							Separate timeless know-how from temporary updates and put each item in the right work
+							area.
+						</p>
+					</article>
+					<article class="phase">
+						<b>03 / Maintain</b>
+						<h3>Keep one version current.</h3>
+						<p>
+							Managers draft, publish and retire information. Employees return to the same trusted
+							place.
+						</p>
+					</article>
+				</div>
+			</section>
+			<section class="compare">
+				<div>
+					<span class="compare-label">The employee side</span>
+					<h2>Less software. More useful context.</h2>
+					<p>
+						A straightforward workplace designed around recognition: familiar sections, clear labels
+						and the current day.
+					</p>
+					<ul>
+						<li>Today’s priorities <span>Now</span></li>
+						<li>Practical guides <span>Find</span></li>
+						<li>Questions and help <span>Ask</span></li>
+					</ul>
+				</div>
+				<div>
+					<span class="compare-label">The manager side</span>
+					<h2>Enough control to keep it trustworthy.</h2>
+					<p>
+						Drafting, publishing, roles and activity history help maintain quality without making
+						the employee experience heavy.
+					</p>
+					<ul>
+						<li>Content workflow <span>Draft</span></li>
+						<li>Workplace access <span>Control</span></li>
+						<li>Current information <span>Publish</span></li>
+					</ul>
+				</div>
+			</section>
+			<section class="quote">
+				<blockquote>
+					Clarity is not an empty screen. It is the right thing, in the right place, at the right
+					time.
+				</blockquote>
+			</section>
+			<section class="faq" id="questions">
+				<div>
+					<p class="eyebrow">Questions before switching</p>
+					<h2>No vague answers.</h2>
+				</div>
+				<div class="questions">
+					<details class="question">
+						<summary>Do we need to move everything on day one?</summary>
+						<p>
+							No. Start with the guides and updates employees ask for most, then add structure at a
+							pace the team can maintain.
+						</p>
+					</details>
+					<details class="question">
+						<summary>Who can draft and publish workplace content?</summary>
+						<p>
+							Roles can separate content editing from publishing and broader workplace management.
+						</p>
+					</details>
+					<details class="question">
+						<summary>Can temporary announcements expire automatically?</summary>
+						<p>
+							Announcements can have publishing and expiration dates so temporary information does
+							not stay current forever.
+						</p>
+					</details>
+					<details class="question">
+						<summary>Can employees use Workhal from a phone?</summary>
+						<p>
+							Yes. The employee experience is designed to stay focused and readable on a phone
+							during the workday.
+						</p>
+					</details>
+				</div>
+			</section>
+			<section class="final-cta" id="start">
+				<span class="status">Ready when you are</span>
+				<h2>Leave “where was that?” behind.</h2>
+				<p>Start with one workplace and the information your team asks for every week.</p>
+				<button class="button" type="button" data-open-dialog="signup-dialog">
+					Choose clarity →
+				</button>
+			</section>
+		</main>
+		<footer class="palette-board">
+			<div>
+				<p class="eyebrow">Palette & type</p>
+				<h2>Problem / solution contrast</h2>
+				<div class="swatches">
+					<div class="swatch" style="background: #00786f; color: white">
+						Primary<span>#00786F</span>
+					</div>
+					<div class="swatch" style="background: #172322; color: white">
+						Ink<span>#172322</span>
+					</div>
+					<div class="swatch" style="background: #c9f2e5">Clear<span>#C9F2E5</span></div>
+					<div class="swatch" style="background: #ffe4de">Chaos<span>#FFE4DE</span></div>
+				</div>
+				<p class="type-note">
+					<strong>Manrope</strong> for confident display and readable body copy +
+					<strong>Space Mono</strong> for status labels.
+				</p>
+			</div>
+			<div>
+				<p class="eyebrow">Options to test</p>
+				<div class="option-list">
+					<div class="option">
+						<strong>A · Recommended</strong>Keep the direct split, then spend the rest of the page
+						on the positive state.
+					</div>
+					<div class="option">
+						<strong>B · Scroll transformation</strong>Let scraps align into the interface as the
+						user scrolls.
+					</div>
+					<div class="option">
+						<strong>C · Less confrontational</strong>Replace red/blush with neutral gray while
+						preserving the comparison.
+					</div>
+				</div>
+			</div>
+		</footer>
+		<dialog class="signup-dialog" id="signup-dialog">
+			<div class="dialog-inner">
+				<div class="dialog-head">
+					<div>
+						<p class="eyebrow">Choose clarity</p>
+						<h2>Start with one useful thing.</h2>
+					</div>
+					<button class="dialog-close" type="button" data-close-dialog aria-label="Close">×</button>
+				</div>
+				<p>For this sketch, submit an email to preview the completion state.</p>
+				<form data-demo-form>
+					<label for="clarity-email">Work email</label>
+					<div class="dialog-field">
+						<input
+							id="clarity-email"
+							type="email"
+							placeholder="you@workplace.com"
+							required
+						/><button class="button" type="submit">Start clearly →</button>
+					</div>
+					<p class="dialog-status" aria-live="polite"></p>
+				</form>
+			</div>
+		</dialog>
+		<script src="./sketch-interactions.js" defer></script>
+	</body>
+</html>
