@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
+	import { page } from '$app/state';
 	import {
 		ArrowRight,
 		Bell,
@@ -18,6 +20,13 @@
 
 	let mobileOpen = $state(false);
 	let scrolled = $state(false);
+
+	const pageTitle = 'Workhal — Everything your shift needs, in one place';
+	const pageDescription =
+		'Workhal brings workplace guides, announcements, events, documents, and everyday answers into one clear home.';
+	const previewDescription = 'One clear workplace for the people who keep the day moving.';
+	const canonicalUrl = $derived(new URL(page.url.pathname, page.url.origin).href);
+	const previewImageUrl = $derived(new URL(asset('/og.png'), page.url).href);
 
 	const faqs = [
 		{
@@ -71,19 +80,28 @@
 </script>
 
 <svelte:head>
-	<title>Workhal — Everything your shift needs, in one place</title>
-	<meta
-		name="description"
-		content="Workhal brings workplace guides, announcements, events, documents, and everyday answers into one clear home."
-	/>
+	<title>{pageTitle}</title>
+	<meta name="description" content={pageDescription} />
 	<meta name="theme-color" content="#00877f" />
-	<meta property="og:title" content="Workhal — Everything your shift needs, in one place" />
-	<meta
-		property="og:description"
-		content="One clear workplace for the people who keep the day moving."
-	/>
-	<meta property="og:image" content="/og.png" />
+	<link rel="canonical" href={canonicalUrl} />
+
 	<meta property="og:type" content="website" />
+	<meta property="og:url" content={canonicalUrl} />
+	<meta property="og:site_name" content="Workhal" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:title" content={pageTitle} />
+	<meta property="og:description" content={previewDescription} />
+	<meta property="og:image" content={previewImageUrl} />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content="Workhal: everything your shift needs, in one place" />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={pageTitle} />
+	<meta name="twitter:description" content={previewDescription} />
+	<meta name="twitter:image" content={previewImageUrl} />
+	<meta name="twitter:image:alt" content="Workhal: everything your shift needs, in one place" />
 </svelte:head>
 
 <header class:nav-scrolled={scrolled} class="site-header">
