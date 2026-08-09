@@ -23,7 +23,7 @@
 
 	const pageTitle = 'Workhal — Everything your shift needs, in one place';
 	const pageDescription =
-		'Workhal brings workplace guides, announcements, events, documents, and everyday answers into one clear home.';
+		'Workhal brings workplace guides, announcements, events, documents, and everyday answers into one clear place.';
 	const previewDescription = 'One clear workplace for the people who keep the day moving.';
 	const canonicalUrl = $derived(new URL(page.url.pathname, page.url.origin).href);
 	const previewImageUrl = $derived(new URL(asset('/og.png'), page.url).href);
@@ -163,7 +163,7 @@
 			<div class="hero-copy">
 				<h1>Turn scattered information into <span>useful direction.</span></h1>
 				<p>
-					Workhal gives workplace know-how, updates, dates, and documents one clear home, so the
+					Workhal gives workplace know-how, updates, dates, and documents one clear place, so the
 					team spends less time finding and more time doing.
 				</p>
 				<div class="hero-actions">
@@ -188,7 +188,7 @@
 			<div class="comparison-label">Before Workhal</div>
 			<div class="comparison-copy">
 				<h2>“Where was that again?”</h2>
-				<p>Chats, folders, paper notes, old files—and the same question asked every shift.</p>
+				<p>Chats, folders, paper notes, old files - and the same question asked every shift.</p>
 			</div>
 			<div class="scraps" aria-hidden="true">
 				<span class="scrap scrap-one"><FileText size={16} /> schedule_final_v4.xlsx</span>
@@ -204,7 +204,10 @@
 				<p>One current, searchable place that makes sense to managers and employees alike.</p>
 			</div>
 			<div class="comparison-screen">
-				<img src="/today.png" alt="Workhal Today page showing useful guides and current events" />
+				<img
+					src="/guide.png"
+					alt="Workhal guide showing step-by-step instructions for opening a cash register"
+				/>
 			</div>
 		</div>
 	</section>
@@ -358,10 +361,28 @@
 				A straightforward workplace home designed around familiar sections, clear labels, and the
 				current day.
 			</p>
-			<ul>
-				<li>Today’s priorities</li>
-				<li>Practical guides</li>
-				<li>Questions and help</li>
+			<ul class="audience-capabilities">
+				<li>
+					<span class="capability-number">01</span>
+					<span>
+						<strong>Know what matters today</strong>
+						<small>See current updates, events, and useful guides at a glance.</small>
+					</span>
+				</li>
+				<li>
+					<span class="capability-number">02</span>
+					<span>
+						<strong>Follow practical guides</strong>
+						<small>Open clear, step-by-step instructions where the work happens.</small>
+					</span>
+				</li>
+				<li>
+					<span class="capability-number">03</span>
+					<span>
+						<strong>Find an answer or a person</strong>
+						<small>Search common questions or contact the shift lead for help.</small>
+					</span>
+				</li>
 			</ul>
 		</div>
 		<div class="audience-panel manager-panel reveal" use:reveal={70}>
@@ -372,10 +393,28 @@
 				Drafting, publishing, access controls, and activity history keep information useful without
 				making the employee experience heavy.
 			</p>
-			<ul>
-				<li>Content workflow</li>
-				<li>Workplace access</li>
-				<li>Current information</li>
+			<ul class="audience-capabilities">
+				<li>
+					<span class="capability-number">01</span>
+					<span>
+						<strong>Draft, review, and publish</strong>
+						<small>Shape content before it reaches the employee view.</small>
+					</span>
+				</li>
+				<li>
+					<span class="capability-number">02</span>
+					<span>
+						<strong>Control workplace access</strong>
+						<small>Decide who can enter, contribute, and manage information.</small>
+					</span>
+				</li>
+				<li>
+					<span class="capability-number">03</span>
+					<span>
+						<strong>Keep one source current</strong>
+						<small>Update the trusted version and track how content changes.</small>
+					</span>
+				</li>
 			</ul>
 		</div>
 	</section>

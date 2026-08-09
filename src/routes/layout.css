@@ -62,6 +62,13 @@ a {
 	background: color-mix(in srgb, var(--teal) 22%, transparent);
 }
 
+.workflow-section ::selection,
+.principle-section ::selection,
+.final-cta ::selection {
+	background: #ffe2d7;
+	color: var(--ink);
+}
+
 :focus-visible {
 	outline: 3px solid color-mix(in srgb, var(--teal) 45%, white);
 	outline-offset: 3px;
@@ -761,9 +768,42 @@ a {
 	list-style: none;
 }
 .audience-panel li {
+	display: grid;
+	grid-template-columns: 44px 1fr;
+	align-items: start;
+	gap: 18px;
 	border-bottom: 1px solid var(--ink);
-	padding: 16px 0;
-	font-size: 14px;
+	padding: 19px 0 20px;
+}
+
+.capability-number {
+	display: grid;
+	width: 34px;
+	height: 34px;
+	place-items: center;
+	border: 1px solid var(--ink);
+	background: var(--paper);
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.06em;
+}
+
+.audience-panel li > span:last-child {
+	display: grid;
+	gap: 5px;
+}
+
+.audience-panel li strong {
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.35;
+}
+
+.audience-panel li small {
+	max-width: 48ch;
+	color: var(--muted);
+	font-size: 12px;
+	line-height: 1.55;
 }
 
 .principle-section {
