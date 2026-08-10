@@ -3,14 +3,15 @@
 	import { page } from '$app/state';
 	import {
 		ArrowRight,
-		Bell,
 		BookOpen,
 		CalendarDays,
 		Check,
+		CircleHelp,
 		FileText,
 		KeyRound,
 		Menu,
 		Search,
+		ShieldCheck,
 		Users,
 		X
 	} from '@lucide/svelte';
@@ -28,10 +29,10 @@
 	let mobileOpen = $state(false);
 	let scrolled = $state(false);
 
-	const pageTitle = 'Workhal — Everything your shift needs, in one place';
+	const pageTitle = 'Workhal — The workplace portal built for the workday';
 	const pageDescription =
-		'Workhal brings workplace guides, announcements, events, documents, and everyday answers into one clear place.';
-	const previewDescription = 'One clear workplace for the people who keep the day moving.';
+		'Workhal turns workplace guides, schedules, files, and everyday answers into one clear staff portal with a focused employee view and controlled manager publishing.';
+	const previewDescription = 'Give every shift one clear place to start.';
 	const canonicalUrl = $derived(new URL(page.url.pathname, page.url.origin).href);
 	const previewImageUrl = $derived(new URL(asset('/og.png'), page.url).href);
 
@@ -39,22 +40,27 @@
 		{
 			question: 'Do employees need to create accounts?',
 			answer:
-				'No. Employees can join with a workplace link or ID and an employee code. Account sign-in is available for people who need it, but it is not required to open a workplace.'
+				'No. A workplace can be open by link or protected with a join code or private link. Access can be remembered on that device, which makes Workhal practical on shared workplace computers as well as employees’ phones.'
 		},
 		{
-			question: 'What can we keep in Workhal?',
+			question: 'How is Workhal different from Docs or Notion?',
 			answer:
-				'Use guides for lasting know-how, announcements for temporary updates, the calendar for operational dates, and documents for shared files and reference material.'
+				'Docs and Notion are flexible places to create pages. Workhal is a ready-made employee portal: it opens on the workday, separates published information from manager controls, connects guides to events and files, and gives staff one search built around workplace tasks.'
+		},
+		{
+			question: 'What belongs in Workhal?',
+			answer:
+				'Use guides for repeatable procedures, the calendar for reservations, training, maintenance, and other operational dates, the document library for files and shared links, and common questions for fast everyday answers.'
 		},
 		{
 			question: 'Can more than one person maintain the content?',
 			answer:
-				'Yes. Managers can organize guides, publish announcements, maintain the calendar, manage documents, and control who can access the workplace.'
+				'Yes. Give people view-only, editing, or full content access. Drafts stay out of the employee view until they are published, and the activity history shows who created, changed, or removed workplace content.'
 		},
 		{
 			question: 'Can we start without moving everything at once?',
 			answer:
-				'Yes. Start with the answers, updates, and practical guides the team needs most often, then add the rest at a pace the workplace can maintain.'
+				'Yes. Start with the recurring answers, practical guides, and important dates the team needs most often, then add the rest at a pace the workplace can maintain.'
 		}
 	];
 
@@ -86,13 +92,13 @@
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
-	<meta property="og:image:alt" content="Workhal: everything your shift needs, in one place" />
+	<meta property="og:image:alt" content="Workhal: give every shift one clear place to start" />
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={pageTitle} />
 	<meta name="twitter:description" content={previewDescription} />
 	<meta name="twitter:image" content={previewImageUrl} />
-	<meta name="twitter:image:alt" content="Workhal: everything your shift needs, in one place" />
+	<meta name="twitter:image:alt" content="Workhal: give every shift one clear place to start" />
 </svelte:head>
 
 <header class:nav-scrolled={scrolled} class="site-header">
@@ -103,11 +109,9 @@
 		</a>
 
 		<nav class="desktop-nav" aria-label="Main navigation">
-			<a data-slot="button" class="button button-ghost button-sm" href="#before-after"
-				>Before and after</a
-			>
+			<a data-slot="button" class="button button-ghost button-sm" href="#difference">Why Workhal</a>
 			<a data-slot="button" class="button button-ghost button-sm" href="#product">Product</a>
-			<a data-slot="button" class="button button-ghost button-sm" href="#workflow">How it works</a>
+			<a data-slot="button" class="button button-ghost button-sm" href="#roles">For teams</a>
 			<a data-slot="button" class="button button-ghost button-sm" href="#questions">Questions</a>
 		</nav>
 
@@ -129,14 +133,14 @@
 
 	{#if mobileOpen}
 		<nav class="mobile-nav" aria-label="Mobile navigation">
-			<a data-slot="button" class="button button-ghost" href="#before-after" onclick={closeMobile}
-				>Before and after</a
+			<a data-slot="button" class="button button-ghost" href="#difference" onclick={closeMobile}
+				>Why Workhal</a
 			>
 			<a data-slot="button" class="button button-ghost" href="#product" onclick={closeMobile}
 				>Product</a
 			>
-			<a data-slot="button" class="button button-ghost" href="#workflow" onclick={closeMobile}
-				>How it works</a
+			<a data-slot="button" class="button button-ghost" href="#roles" onclick={closeMobile}
+				>For teams</a
 			>
 			<a data-slot="button" class="button button-ghost" href="#questions" onclick={closeMobile}
 				>Questions</a
@@ -153,25 +157,25 @@
 		<div class="site-container hero-inner">
 			<div class="hero-copy" use:entrance={{ distance: 18 }} use:textDecode>
 				<h1 data-motion-text>
-					Turn scattered information into <span class="hero-accent">useful direction.</span>
+					Give every shift <span class="hero-accent">one clear place to start.</span>
 				</h1>
 				<p data-motion-fade>
-					Workhal gives workplace know-how, updates, dates, and documents one clear place, so the
-					team spends less time finding and more time doing.
+					Workhal turns procedures, schedules, files, and everyday answers into a focused staff
+					portal—built for people doing the work, not people organizing pages.
 				</p>
 				<div class="hero-actions" data-motion-item>
 					<a data-slot="button" class="button button-primary" href="#product">
-						See the product <ArrowRight data-icon="inline-end" size={18} />
+						See how Workhal works <ArrowRight data-icon="inline-end" size={18} />
 					</a>
-					<a data-slot="button" class="button button-outline" href="#before-after"
-						>See the difference</a
+					<a data-slot="button" class="button button-outline" href="#difference"
+						>Why not Docs or Notion?</a
 					>
 				</div>
 			</div>
 			<div class="hero-facts" aria-label="Workhal highlights" use:textDecode>
 				<span data-motion-fade><Check size={16} /> No employee account required</span>
-				<span data-motion-fade><Check size={16} /> English and Estonian</span>
-				<span data-motion-fade><Check size={16} /> Works on desktop and mobile</span>
+				<span data-motion-fade><Check size={16} /> Controlled publishing and permissions</span>
+				<span data-motion-fade><Check size={16} /> Made for shared computers and phones</span>
 			</div>
 		</div>
 	</section>
@@ -183,26 +187,28 @@
 		use:chaosToClarity
 	>
 		<div class="comparison chaos-side" use:textDecode>
-			<div class="comparison-label" data-motion-fade>Before Workhal</div>
+			<div class="comparison-label" data-motion-fade>Across folders, chats, and shared drives</div>
 			<div class="comparison-copy">
-				<h2 data-motion-text>“Where was that again?”</h2>
+				<h2 data-motion-text>The answer exists. The team still asks.</h2>
 				<p data-motion-fade>
-					Chats, folders, paper notes, old files - and the same question asked every shift.
+					Information is spread across pages and files, while the same questions still interrupt the
+					shift.
 				</p>
 			</div>
 			<div class="scraps" aria-hidden="true">
-				<span class="scrap scrap-one"><FileText size={16} /> schedule_final_v4.xlsx</span>
-				<span class="scrap scrap-two"><Search size={16} /> Which folder?</span>
-				<span class="scrap scrap-three"><Bell size={16} /> Can someone resend it?</span>
+				<span class="scrap scrap-one"><FileText size={16} /> process_FINAL_v3.docx</span>
+				<span class="scrap scrap-two"><Search size={16} /> Which page is current?</span>
+				<span class="scrap scrap-three"><CircleHelp size={16} /> Who knows this?</span>
 			</div>
 		</div>
 
 		<div class="comparison clarity-side" use:textDecode>
 			<div class="comparison-label" data-motion-fade>With Workhal</div>
 			<div class="comparison-copy">
-				<h2 data-motion-text>Everything has a home.</h2>
+				<h2 data-motion-text>The right answer meets the workday.</h2>
 				<p data-motion-fade>
-					One current, searchable place that makes sense to managers and employees alike.
+					One staff-ready portal brings the day, guides, calendar, files, and answers together in a
+					structure employees can understand at a glance.
 				</p>
 			</div>
 			<div class="comparison-screen">
@@ -216,51 +222,50 @@
 
 	<section
 		class="problem-strip"
-		aria-label="Problems Workhal solves"
+		aria-label="Business benefits of Workhal"
 		use:entrance={{ staggerBy: 0.06, variant: 'card', distance: 28 }}
 	>
 		<article data-motion-item>
-			<strong class="problem-label">Version drift</strong>
-			<h3>The latest file is not obvious</h3>
-			<p>Old copies linger in inboxes and shared folders.</p>
+			<strong class="problem-label">Fewer interruptions</strong>
+			<h3>Managers stop being the search bar</h3>
+			<p>Everyday answers stay findable even when the expert is not on shift.</p>
 		</article>
 		<article data-motion-item>
-			<strong class="problem-label">Buried updates</strong>
-			<h3>Updates disappear in chat</h3>
-			<p>Important notices compete with everyday conversation.</p>
+			<strong class="problem-label">Faster onboarding</strong>
+			<h3>New starters follow the same playbook</h3>
+			<p>Clear, repeatable guides reduce dependence on memory and verbal handover.</p>
 		</article>
 		<article data-motion-item>
-			<strong class="problem-label">Knowledge bottleneck</strong>
-			<h3>Knowledge lives in people</h3>
-			<p>The answer depends on who happens to be working.</p>
+			<strong class="problem-label">Operational readiness</strong>
+			<h3>The team sees the day before it gets busy</h3>
+			<p>Important times, responsibilities, and instructions live in the same workplace.</p>
 		</article>
 		<article data-motion-item>
-			<strong class="problem-label">Repeated briefing</strong>
-			<h3>Every shift starts from zero</h3>
-			<p>The same context has to be explained again.</p>
+			<strong class="problem-label">A trusted source</strong>
+			<h3>Employees see the published version</h3>
+			<p>Drafts and manager controls stay separate from the clear employee view.</p>
 		</article>
 	</section>
 
 	<section class="product-section" id="product">
 		<div class="site-container product-layout">
 			<div class="product-copy" use:entrance use:textDecode>
-				<h2 data-motion-text>See the day before the day gets busy.</h2>
+				<h2 data-motion-text>Start every shift with context, not questions.</h2>
 				<p data-motion-fade>
-					The Today page surfaces useful guides, current events, quick links, and workplace
-					information without making employees hunt through separate tools.
+					Today is a branded operational briefing, not a blank page. It brings the day’s schedule,
+					featured instructions, and key workplace information into one clean view.
 				</p>
 				<ul class="check-list" data-motion-item>
-					<li><Check size={18} /> Current information first</li>
-					<li><Check size={18} /> Stable places for recurring knowledge</li>
-					<li><Check size={18} /> Search across workplace information</li>
-					<li><Check size={18} /> A focused, responsive employee view</li>
+					<li><Check size={18} /> Featured guides and today’s schedule</li>
+					<li><Check size={18} /> Sections managers can show, hide, and reorder</li>
+					<li><Check size={18} /> One search across the workplace</li>
+					<li><Check size={18} /> A direct route to the right contact</li>
 				</ul>
 			</div>
 			<figure class="app-shot app-shot-main">
 				<div class="shot-frame shot-today" use:screenshotReveal={0.08} use:screenshotScroll>
 					<img src="/today.png" alt="The real Workhal Today screen" />
 				</div>
-				<figcaption>Today keeps the most useful workplace information in view.</figcaption>
 			</figure>
 		</div>
 	</section>
@@ -268,36 +273,36 @@
 	<section class="feature-section">
 		<div class="site-container">
 			<div class="section-heading" use:textDecode>
-				<h2 data-motion-text>One workplace, organized around the actual workday.</h2>
+				<h2 data-motion-text>Tools for running work, not collecting pages.</h2>
 				<p data-motion-fade>
-					Guides, events, announcements, documents, and common questions stay connected and
-					searchable from the same clear interface.
+					Every part of Workhal is shaped around what staff need to know, do, or find during a shift
+					and what managers need to keep it reliable.
 				</p>
 			</div>
 
 			<div class="feature-grid" use:entrance={{ staggerBy: 0.055, variant: 'card', distance: 28 }}>
 				<article class="feature-copy-card" data-motion-item>
 					<div class="feature-icon"><BookOpen size={22} /></div>
-					<h3>Practical guides stay easy to find.</h3>
+					<h3>Turn know-how into usable instructions.</h3>
 					<p>
-						Organize instructions by work area and show the frequently used guides directly on the
-						Today page.
+						Organize step-by-step guides by work area, add reading time and related guidance,
+						feature the most useful ones on Today, and print them when the job needs paper.
 					</p>
 				</article>
 				<article class="feature-copy-card" data-motion-item>
-					<div class="feature-icon"><Bell size={22} /></div>
-					<h3>Temporary information stays temporary.</h3>
+					<div class="feature-icon"><CalendarDays size={22} /></div>
+					<h3>Put the full plan on the calendar.</h3>
 					<p>
-						Publish announcements when they matter, then retire them so yesterday’s update does not
-						become today’s confusion.
+						Keep reservations, training, maintenance, and key dates together with the responsible
+						people, location, notes, attachments, and the guides needed to prepare.
 					</p>
 				</article>
 				<article class="feature-copy-card" data-motion-item>
 					<div class="feature-icon"><FileText size={22} /></div>
-					<h3>Documents have a dependable place.</h3>
+					<h3>Keep files connected to the work.</h3>
 					<p>
-						Keep shared files and reference material close to the guides, events, and questions that
-						give them context.
+						Upload a file or share an existing link, connect it to relevant guides and employees,
+						and make it discoverable through the same workplace search.
 					</p>
 				</article>
 			</div>
@@ -311,7 +316,9 @@
 					<div class="shot-frame shot-calendar" use:screenshotReveal>
 						<img src="/calendar.png" alt="The real Workhal calendar screen" />
 					</div>
-					<figcaption>Reservations, training, deliveries, visits, and important dates.</figcaption>
+					<figcaption>
+						Plan the work with dates, people, files, and instructions in context.
+					</figcaption>
 				</figure>
 
 				<figure class="app-shot" use:entrance={{ delay: 0.06 }}>
@@ -328,97 +335,109 @@
 		</div>
 	</section>
 
-	<section class="workflow-section" id="workflow">
+	<section class="workflow-section" id="difference">
 		<div class="site-container">
 			<div class="workflow-heading" use:textDecode>
-				<h2 data-motion-text>Three changes, not a giant transformation project.</h2>
+				<h2 data-motion-text>Why Workhal instead of another Docs or Notion space?</h2>
 				<p data-motion-fade>
-					Start with the information employees already need. Workhal gives it structure and a
-					dependable publishing rhythm.
+					Docs and Notion are excellent places to create information. Workhal is designed to turn
+					approved information into an employee experience that works on shift.
 				</p>
 			</div>
 
 			<div class="workflow-grid" use:entrance={{ staggerBy: 0.06, variant: 'card', distance: 28 }}>
 				<article class="workflow-step" data-motion-item>
-					<strong>Collect recurring needs</strong>
-					<h3>Move the useful things in.</h3>
-					<p>Gather recurring answers, practical guides, important dates, and current notices.</p>
+					<strong>A starting point, not a folder tree</strong>
+					<h3>Start with what matters today.</h3>
+					<p>
+						Employees open Today and immediately see useful guidance and what is on the schedule.
+					</p>
 				</article>
 				<article class="workflow-step" data-motion-item>
-					<strong>Separate by lifespan</strong>
-					<h3>Give each thing a purpose.</h3>
-					<p>Separate lasting know-how from temporary updates and organize it by work area.</p>
+					<strong>A staff view, not an editing workspace</strong>
+					<h3>Employees see the trusted version.</h3>
+					<p>Drafting, publishing, access controls, and administration stay on the manager side.</p>
 				</article>
 				<article class="workflow-step" data-motion-item>
-					<strong>Maintain one source</strong>
-					<h3>Keep one version current.</h3>
-					<p>Managers maintain the content. Employees return to the same trusted workplace.</p>
+					<strong>Connected operations, not isolated pages</strong>
+					<h3>Knowledge travels with the work.</h3>
+					<p>
+						Guides, events, files, responsibilities, and common questions connect through one staff
+						portal.
+					</p>
 				</article>
 			</div>
 		</div>
 	</section>
 
-	<section class="audience-section">
+	<section class="audience-section" id="roles">
 		<div class="audience-panel employee-panel" use:entrance use:textDecode>
 			<div data-motion-item><Users size={28} /></div>
 			<h2 data-motion-fade>The employee side</h2>
-			<h3 data-motion-text>Less software. More useful context.</h3>
+			<h3 data-motion-text>A workplace portal that feels obvious.</h3>
 			<p data-motion-fade>
-				A straightforward workplace home designed around familiar sections, clear labels, and the
-				current day.
+				A clear home designed for quick visits during real work, whether staff use a shared computer
+				or their own phone.
 			</p>
 			<ul class="audience-capabilities" data-motion-item>
 				<li>
 					<span class="capability-number">01</span>
 					<span>
-						<strong>Know what matters today</strong>
-						<small>See current updates, events, and useful guides at a glance.</small>
+						<strong>Start with the shift</strong>
+						<small
+							>Open Today for the schedule, useful guides, and direct routes to key areas.</small
+						>
 					</span>
 				</li>
 				<li>
 					<span class="capability-number">02</span>
 					<span>
-						<strong>Follow practical guides</strong>
-						<small>Open clear, step-by-step instructions where the work happens.</small>
+						<strong>Search the whole workplace</strong>
+						<small
+							>Find guides, events, files, and common answers without learning a folder system.</small
+						>
 					</span>
 				</li>
 				<li>
 					<span class="capability-number">03</span>
 					<span>
-						<strong>Find an answer or a person</strong>
-						<small>Search common questions or contact the shift lead for help.</small>
+						<strong>Ask the right person</strong>
+						<small>Send a question to the shift lead without leaving the workplace portal.</small>
 					</span>
 				</li>
 			</ul>
 		</div>
 		<div class="audience-panel manager-panel" use:entrance={{ delay: 0.07 }} use:textDecode>
-			<div data-motion-item><BookOpen size={28} /></div>
+			<div data-motion-item><ShieldCheck size={28} /></div>
 			<h2 data-motion-fade>The manager side</h2>
-			<h3 data-motion-text>Enough control to keep it trustworthy.</h3>
+			<h3 data-motion-text>Control without becoming a systems admin.</h3>
 			<p data-motion-fade>
-				Drafting, publishing, access controls, and activity history keep information useful without
-				making the employee experience heavy.
+				A separate manager area keeps content, staff access, and workplace settings reliable without
+				adding complexity to the employee side.
 			</p>
 			<ul class="audience-capabilities" data-motion-item>
 				<li>
 					<span class="capability-number">01</span>
 					<span>
-						<strong>Draft, review, and publish</strong>
-						<small>Shape content before it reaches the employee view.</small>
+						<strong>Publish with confidence</strong>
+						<small>Prepare and review content before it reaches employees.</small>
 					</span>
 				</li>
 				<li>
 					<span class="capability-number">02</span>
 					<span>
-						<strong>Control workplace access</strong>
-						<small>Decide who can enter, contribute, and manage information.</small>
+						<strong>Delegate with clear roles</strong>
+						<small
+							>Give view-only, editing, or full content access without exposing owner controls.</small
+						>
 					</span>
 				</li>
 				<li>
 					<span class="capability-number">03</span>
 					<span>
-						<strong>Keep one source current</strong>
-						<small>Update the trusted version and track how content changes.</small>
+						<strong>Keep access and changes accountable</strong>
+						<small>Protect entry with a code or private link and review the activity history.</small
+						>
 					</span>
 				</li>
 			</ul>
@@ -427,8 +446,7 @@
 
 	<section class="principle-section">
 		<blockquote data-motion-text use:textDecode>
-			“Clarity is not an empty screen. It is the right thing, in the right place, at the right
-			time.”
+			“Your procedures should do more than exist. They should show up when the work needs them.”
 		</blockquote>
 	</section>
 
@@ -453,10 +471,12 @@
 
 	<section class="final-cta">
 		<div class="site-container final-inner" use:entrance use:textDecode>
-			<h2 data-motion-text>Leave “where was that?” behind.</h2>
-			<p data-motion-fade>Start with the information your team asks for every week.</p>
+			<h2 data-motion-text>Make workplace knowledge useful on shift.</h2>
+			<p data-motion-fade>
+				Give staff one clear source for the workday—and managers one place to keep it trusted.
+			</p>
 			<a data-motion-item data-slot="button" class="button button-light" href="#product"
-				>Explore the employee view <ArrowRight data-icon="inline-end" size={18} /></a
+				>See Workhal in action <ArrowRight data-icon="inline-end" size={18} /></a
 			>
 		</div>
 	</section>
@@ -468,10 +488,10 @@
 			<BrandMark class="brand-logo" />
 			<span>workhal</span>
 		</a>
-		<p>Everything your shift needs, in one place.</p>
+		<p>The workplace portal built for the workday.</p>
 		<nav aria-label="Footer navigation" class="flex flex-wrap gap-6">
 			<a data-slot="button" class="button button-ghost button-sm" href="#product">Product</a>
-			<a data-slot="button" class="button button-ghost button-sm" href="#workflow">How it works</a>
+			<a data-slot="button" class="button button-ghost button-sm" href="#difference">Why Workhal</a>
 			<a data-slot="button" class="button button-ghost button-sm" href="#questions">Questions</a>
 		</nav>
 	</div>
