@@ -434,9 +434,7 @@
 	<section class="feature-story" aria-labelledby="feature-story-title">
 		<div class="feature-story-sticky">
 			<div class="site-container feature-story-heading" use:textDecode>
-				<h2 id="feature-story-title" data-motion-text>
-					One workplace. Every moving part connected.
-				</h2>
+				<h2 id="feature-story-title" data-motion-text>Browse features</h2>
 			</div>
 
 			<!-- svelte-ignore a11y_no_noninteractive_tabindex (scroll region is keyboard-focusable) -->
