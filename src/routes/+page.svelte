@@ -8,7 +8,9 @@
 		Check,
 		CircleHelp,
 		FileText,
+		Home,
 		KeyRound,
+		Megaphone,
 		Menu,
 		Search,
 		ShieldCheck,
@@ -61,6 +63,100 @@
 			question: 'Can we start without moving everything at once?',
 			answer:
 				'Yes. Start with the recurring answers, practical guides, and important dates the team needs most often, then add the rest at a pace the workplace can maintain.'
+		}
+	];
+
+	const productFeatures = [
+		{
+			icon: Home,
+			label: 'Today',
+			title: 'A useful opening screen, shaped around this shift.',
+			description:
+				'Bring the workplace welcome, quick links, today’s schedule, active announcements, what is coming next, and featured guides into one configurable starting point.',
+			details: [
+				'Show, hide, and reorder sections',
+				'Branded for each workplace',
+				'Built for quick return visits'
+			],
+			tone: 'mint'
+		},
+		{
+			icon: BookOpen,
+			label: 'Guides & answers',
+			title: 'Know-how people can actually use mid-task.',
+			description:
+				'Publish rich, step-by-step guides by work area, connect related instructions, and keep common questions close for the answers people need repeatedly.',
+			details: [
+				'Categories, reading time, and keywords',
+				'Related guides and print view',
+				'Fast common-question answers'
+			],
+			tone: 'paper'
+		},
+		{
+			icon: CalendarDays,
+			label: 'Calendar & responsibility',
+			title: 'The schedule carries the context with it.',
+			description:
+				'Plan training, reservations, maintenance, and other operational dates with owners, locations, notes, attachments, and the guides needed to prepare.',
+			details: [
+				'Assign employees to events',
+				'Attach files and related guides',
+				'Export events to a calendar'
+			],
+			tone: 'orange'
+		},
+		{
+			icon: Megaphone,
+			label: 'Announcements & notifications',
+			title: 'Important changes arrive while they still matter.',
+			description:
+				'Publish time-bound operational updates, pin priorities, and give staff a notification feed for new content, assignments, questions, and workplace changes.',
+			details: [
+				'Normal, important, and urgent priority',
+				'Publish and expiry windows',
+				'Unread activity in one feed'
+			],
+			tone: 'ink'
+		},
+		{
+			icon: FileText,
+			label: 'Documents & connections',
+			title: 'Files stop living in a separate universe.',
+			description:
+				'Upload a workplace file or point to an existing link, connect it to the relevant guidance, and assign it to the people who need it.',
+			details: [
+				'Files and shared links',
+				'Guide and employee relationships',
+				'One published document library'
+			],
+			tone: 'paper'
+		},
+		{
+			icon: Search,
+			label: 'Search & personal notes',
+			title: 'Find the shared answer. Keep your own context.',
+			description:
+				'Search across guides, events, announcements, common questions, and documents, while signed-in employees keep an autosaved note pad close to the workday.',
+			details: [
+				'Search titles, content, people, and places',
+				'Keyboard-first quick search',
+				'Autosaved employee notes'
+			],
+			tone: 'mint'
+		},
+		{
+			icon: ShieldCheck,
+			label: 'Publishing, roles & access',
+			title: 'Delegate the upkeep without losing the trusted source.',
+			description:
+				'Keep drafts away from the employee view, let selected people contribute to specific areas, and control entry without forcing every employee to create an account.',
+			details: [
+				'Viewer, editor, and manager roles',
+				'Per-area employee editing',
+				'Join code, private link, and activity history'
+			],
+			tone: 'teal'
 		}
 	];
 
@@ -331,6 +427,54 @@
 					</div>
 					<figcaption>Employees can open a workplace without creating an account.</figcaption>
 				</figure>
+			</div>
+		</div>
+	</section>
+
+	<section class="feature-story" aria-labelledby="feature-story-title">
+		<div class="feature-story-sticky">
+			<div class="site-container feature-story-heading" use:textDecode>
+				<h2 id="feature-story-title" data-motion-text>
+					One workplace. Every moving part connected.
+				</h2>
+			</div>
+
+			<!-- svelte-ignore a11y_no_noninteractive_tabindex (scroll region is keyboard-focusable) -->
+			<div class="feature-story-window" role="region" aria-label="Product features" tabindex="0">
+				<div class="feature-story-track">
+					{#each productFeatures as feature, index}
+						{@const Icon = feature.icon}
+						<article class={`feature-story-card feature-tone-${feature.tone}`}>
+							<div class="feature-story-copy">
+								<div class="feature-story-meta">
+									<span>{String(index + 1).padStart(2, '0')} / 07</span>
+									<span><Icon size={19} /> {feature.label}</span>
+								</div>
+								<h3>{feature.title}</h3>
+								<p>{feature.description}</p>
+								<ul>
+									{#each feature.details as detail}
+										<li><Check size={16} /> {detail}</li>
+									{/each}
+								</ul>
+							</div>
+							<div
+								class="feature-media-placeholder"
+								role="img"
+								aria-label={`${feature.label} product screenshot placeholder`}
+							>
+								<div class="placeholder-bar">
+									<span></span><span></span><span></span>
+								</div>
+								<div class="placeholder-body">
+									<Icon size={34} />
+									<strong>{feature.label}</strong>
+									<small>Product screenshot placeholder</small>
+								</div>
+							</div>
+						</article>
+					{/each}
+				</div>
 			</div>
 		</div>
 	</section>
