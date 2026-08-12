@@ -1088,6 +1088,23 @@ a {
 	line-height: 1.55;
 }
 
+/*
+ * Keep the two sides of the comparison on shared vertical tracks. The copy above
+ * the capability list can wrap differently in each panel, so independent flex
+ * layouts would otherwise let the list beginnings drift apart.
+ */
+@media (min-width: 761px) {
+	.audience-panel {
+		display: grid;
+		grid-row: span 5;
+		grid-template-rows: subgrid;
+		align-content: start;
+	}
+	.audience-panel ul {
+		align-self: start;
+	}
+}
+
 .principle-section {
 	padding: clamp(90px, 12vw, 170px) 30px;
 	background: var(--ink);
@@ -1351,6 +1368,9 @@ a {
 	.feature-copy-card:last-child,
 	.workflow-step:last-child {
 		border-bottom: 0;
+	}
+	.workflow-step {
+		border-bottom-color: rgb(255 255 255 / 45%);
 	}
 	.feature-copy-card h3,
 	.workflow-step h3 {
