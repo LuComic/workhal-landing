@@ -75,6 +75,7 @@ type DecodeCharacter = {
 type PreparedScramble = {
 	canvas: HTMLCanvasElement;
 	cleanup: () => void;
+	remeasure: () => void;
 	render: (resolvedCharacters: number) => void;
 	totalCharacters: number;
 };
@@ -105,7 +106,6 @@ function refreshDecodeHighlight(api: HighlightApi) {
 }
 
 function prepareScramble(element: HTMLElement) {
-	const elementRect = element.getBoundingClientRect();
 	const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, {
 		acceptNode: (textNode) =>
 			textNode.textContent?.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
@@ -118,86 +118,50 @@ function prepareScramble(element: HTMLElement) {
 	for (const textNode of textNodes) {
 		const parent = textNode.parentElement;
 		if (!parent) continue;
-		const style = getComputedStyle(parent);
-		const font = [
-			style.fontStyle === 'normal' ? '' : style.fontStyle,
-			style.fontWeight,
-			style.fontSize,
-			style.fontFamily
-		]
-			.filter(Boolean)
-			.join(' ');
 		for (let index = 0; index < textNode.data.length; index += 1) {
 			if (/\s/.test(textNode.data[index])) continue;
 			const range = document.createRange();
 			range.setStart(textNode, index);
 			range.setEnd(textNode, index + 1);
-			const rect = range.getBoundingClientRect();
 			characters.push({
-				bottom: rect.bottom - elementRect.top,
-				color: style.color,
-				font,
-				left: rect.left - elementRect.left,
+				bottom: 0,
+				color: '',
+				font: '',
+				left: 0,
 				range,
 				symbol: '+',
 				symbolX: 0,
-				top: rect.top - elementRect.top,
-				width: rect.width
+				top: 0,
+				width: 0
 			});
 			characterIndex += 1;
 		}
 	}
 
-	const lines: number[][] = [];
-	characters.forEach((character, index) => {
-		const line = lines.find((candidate) =>
-			candidate.some(
-				(characterIndex) => Math.abs(characters[characterIndex].top - character.top) < 2
-			)
-		);
-		if (line) line.push(index);
-		else lines.push([index]);
-	});
-
+	let elementRect = element.getBoundingClientRect();
 	let narrowestSlot = Number.POSITIVE_INFINITY;
-	for (const line of lines) {
-		line.sort((a, b) => characters[a].left - characters[b].left);
-		const lineLeft = Math.min(...line.map((index) => characters[index].left));
-		const lineRight = Math.max(
-			...line.map((index) => characters[index].left + characters[index].width)
-		);
-		const slotWidth = (lineRight - lineLeft) / line.length;
-		narrowestSlot = Math.min(narrowestSlot, slotWidth);
-		line.forEach((characterIndex, slotIndex) => {
-			characters[characterIndex].symbolX = lineLeft + slotWidth * (slotIndex + 0.5);
-		});
-	}
-
 	const canvas = document.createElement('canvas');
 	canvas.className = 'motion-scramble-canvas';
 	canvas.setAttribute('aria-hidden', 'true');
-	const deviceScale = Math.max(1, window.devicePixelRatio || 1);
-	canvas.width = Math.ceil(elementRect.width * deviceScale);
-	canvas.height = Math.ceil(elementRect.height * deviceScale);
-	canvas.style.width = `${elementRect.width}px`;
-	canvas.style.height = `${elementRect.height}px`;
 	const context = canvas.getContext('2d');
 	if (!context) {
 		return {
 			canvas,
 			cleanup: () => {},
+			remeasure: () => {},
 			render: () => {},
 			totalCharacters: characterIndex
 		} satisfies PreparedScramble;
 	}
-	context.scale(deviceScale, deviceScale);
 	if (getComputedStyle(element).position === 'static') element.style.position = 'relative';
 	element.append(canvas);
 
 	const highlightApi = getHighlightApi();
 	let lastResolved = -1;
+	let currentResolved = 0;
 	const render = (resolvedCharacters: number) => {
 		const resolved = Math.max(0, Math.min(characterIndex, Math.floor(resolvedCharacters)));
+		currentResolved = resolvedCharacters;
 		if (highlightApi && resolved !== lastResolved) {
 			characters.forEach(({ range }, index) => {
 				if (index < resolved) hiddenDecodeRanges.delete(range);
@@ -215,7 +179,7 @@ function prepareScramble(element: HTMLElement) {
 			context.textAlign = 'center';
 			context.textBaseline = 'middle';
 			const symbolWidth = context.measureText(character.symbol).width;
-			const symbolScale = Math.min(0.8, (narrowestSlot * 0.72) / symbolWidth);
+			const symbolScale = Math.min(0.8, (narrowestSlot * 0.72) / Math.max(symbolWidth, 1));
 			context.save();
 			context.translate(character.symbolX, character.top + (character.bottom - character.top) / 2);
 			context.scale(symbolScale, symbolScale);
@@ -223,15 +187,79 @@ function prepareScramble(element: HTMLElement) {
 			context.restore();
 		}
 	};
+	const remeasure = () => {
+		if (!canvas.isConnected) return;
+
+		elementRect = element.getBoundingClientRect();
+		for (const character of characters) {
+			const parent = character.range.startContainer.parentElement;
+			if (!parent) continue;
+			const style = getComputedStyle(parent);
+			const rect = character.range.getBoundingClientRect();
+			character.bottom = rect.bottom - elementRect.top;
+			character.color = style.color;
+			character.font = [
+				style.fontStyle === 'normal' ? '' : style.fontStyle,
+				style.fontWeight,
+				style.fontSize,
+				style.fontFamily
+			]
+				.filter(Boolean)
+				.join(' ');
+			character.left = rect.left - elementRect.left;
+			character.top = rect.top - elementRect.top;
+			character.width = rect.width;
+		}
+
+		const lines: number[][] = [];
+		characters.forEach((character, index) => {
+			const line = lines.find((candidate) =>
+				candidate.some(
+					(characterIndex) => Math.abs(characters[characterIndex].top - character.top) < 2
+				)
+			);
+			if (line) line.push(index);
+			else lines.push([index]);
+		});
+
+		narrowestSlot = Number.POSITIVE_INFINITY;
+		for (const line of lines) {
+			line.sort((a, b) => characters[a].left - characters[b].left);
+			const lineLeft = Math.min(...line.map((index) => characters[index].left));
+			const lineRight = Math.max(
+				...line.map((index) => characters[index].left + characters[index].width)
+			);
+			const slotWidth = (lineRight - lineLeft) / line.length;
+			narrowestSlot = Math.min(narrowestSlot, slotWidth);
+			line.forEach((characterIndex, slotIndex) => {
+				characters[characterIndex].symbolX = lineLeft + slotWidth * (slotIndex + 0.5);
+			});
+		}
+		if (!Number.isFinite(narrowestSlot)) narrowestSlot = 1;
+
+		const deviceScale = Math.max(1, window.devicePixelRatio || 1);
+		canvas.width = Math.max(1, Math.ceil(elementRect.width * deviceScale));
+		canvas.height = Math.max(1, Math.ceil(elementRect.height * deviceScale));
+		canvas.style.width = `${elementRect.width}px`;
+		canvas.style.height = `${elementRect.height}px`;
+		context.scale(deviceScale, deviceScale);
+		render(currentResolved);
+	};
 	const cleanup = () => {
 		if (!highlightApi) return;
 		characters.forEach(({ range }) => hiddenDecodeRanges.delete(range));
 		refreshDecodeHighlight(highlightApi);
 	};
 
-	render(0);
+	remeasure();
 
-	return { canvas, cleanup, render, totalCharacters: characterIndex } satisfies PreparedScramble;
+	return {
+		canvas,
+		cleanup,
+		remeasure,
+		render,
+		totalCharacters: characterIndex
+	} satisfies PreparedScramble;
 }
 
 export function textDecode(node: HTMLElement) {
@@ -247,6 +275,16 @@ export function textDecode(node: HTMLElement) {
 	];
 	const prepared = decodeTargets.map((target) => prepareScramble(target));
 	for (const target of fadeTargets) target.style.opacity = '0';
+	let resizeFrame = 0;
+	const scheduleRemeasure = () => {
+		cancelAnimationFrame(resizeFrame);
+		resizeFrame = requestAnimationFrame(() => {
+			prepared.forEach(({ remeasure }) => remeasure());
+		});
+	};
+	const resizeObserver = new ResizeObserver(scheduleRemeasure);
+	decodeTargets.forEach((target) => resizeObserver.observe(target));
+	window.addEventListener('resize', scheduleRemeasure);
 
 	const controls: Array<ReturnType<typeof animate>> = [];
 	const stop = inView(
@@ -290,6 +328,9 @@ export function textDecode(node: HTMLElement) {
 	return {
 		destroy: () => {
 			stop();
+			cancelAnimationFrame(resizeFrame);
+			resizeObserver.disconnect();
+			window.removeEventListener('resize', scheduleRemeasure);
 			controls.forEach((control) => control.stop());
 			prepared.forEach(({ canvas, cleanup }) => {
 				cleanup();
