@@ -652,12 +652,24 @@ a {
 }
 
 .feature-story-heading h2 {
+	display: inline-flex;
 	max-width: 900px;
+	align-items: center;
+	gap: 0.24em;
 	margin: 0;
-	font-size: clamp(39px, 4.6vw, 68px);
+	font-size: clamp(32px, 4.6vw, 68px);
 	font-weight: 700;
 	line-height: 0.98;
 	letter-spacing: -0.065em;
+	white-space: nowrap;
+}
+
+.feature-story-heading .feature-story-arrow {
+	width: 0.7em;
+	height: 0.7em;
+	flex: 0 0 auto;
+	color: var(--teal);
+	stroke-width: 2;
 }
 
 .feature-story-window {
@@ -825,6 +837,12 @@ a {
 .feature-tone-teal {
 	background: var(--teal);
 	color: white;
+}
+
+.feature-tone-ink ::selection,
+.feature-tone-teal ::selection {
+	background: #ffe2d7;
+	color: var(--ink);
 }
 
 .feature-tone-teal .feature-story-copy > p {

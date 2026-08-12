@@ -464,7 +464,10 @@
 	<section class="feature-story" aria-labelledby="feature-story-title">
 		<div class="feature-story-sticky">
 			<div class="site-container feature-story-heading" use:textDecode>
-				<h2 id="feature-story-title" data-motion-text>{m.browse_features()}</h2>
+				<h2 id="feature-story-title" data-motion-text>
+					<span>{m.browse_features()}</span>
+					<ArrowRight class="feature-story-arrow" aria-hidden="true" />
+				</h2>
 			</div>
 
 			<!-- svelte-ignore a11y_no_noninteractive_tabindex (scroll region is keyboard-focusable) -->
