@@ -17,4 +17,5 @@ bun run build
 ```
 
 The page content is based on the Workhal product in `../onboarding-site`, including Today, Guides, Calendar, Announcements, Documents, employee access, and manager administration.
+
 # workhal-landing
