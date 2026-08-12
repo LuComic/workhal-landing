@@ -145,6 +145,10 @@ a {
 	justify-self: end;
 }
 
+.header-cta-short {
+	display: none;
+}
+
 .locale-switcher,
 .mobile-locale-switcher {
 	display: inline-flex;
@@ -1362,6 +1366,16 @@ a {
 	}
 }
 
+@media (max-width: 1180px) and (min-width: 1041px) {
+	.header-cta-full {
+		display: none;
+	}
+
+	.header-cta-short {
+		display: inline;
+	}
+}
+
 @media (max-width: 760px) {
 	.faq-section {
 		--faq-answer-space: 103px;
@@ -1385,19 +1399,20 @@ a {
 		padding-bottom: 44px;
 	}
 	.feature-story-window {
-		overflow: visible;
-		scroll-snap-type: none;
+		overflow-x: auto;
+		overflow-y: hidden;
+		scroll-snap-type: x mandatory;
 	}
 	.feature-story-track {
-		display: grid;
-		width: auto;
+		display: flex;
+		width: max-content;
 		height: auto;
 		gap: 22px;
-		padding: 0 14px;
+		padding: 0 24px 28px 14px;
 		transform: none !important;
 	}
 	.feature-story-card {
-		width: auto;
+		width: min(86vw, 420px);
 		height: auto;
 		min-height: 0;
 		grid-template-columns: 1fr;

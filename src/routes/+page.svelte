@@ -248,8 +248,14 @@
 					onclick={(event) => changeLocale(event, 'en')}>EN</a
 				>
 			</nav>
-			<a data-slot="button" class="button button-primary header-cta" href="#product">
-				{m.explore_workhal()}
+			<a
+				data-slot="button"
+				class="button button-primary header-cta"
+				href="#product"
+				aria-label={m.explore_workhal()}
+			>
+				<span class="header-cta-full">{m.explore_workhal()}</span>
+				<span class="header-cta-short" aria-hidden="true">{m.explore()}</span>
 				<ArrowRight data-icon="inline-end" size={17} />
 			</a>
 		</div>
