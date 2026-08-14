@@ -411,7 +411,7 @@ export function chaosToClarity(node: HTMLElement) {
 						{
 							opacity: 1,
 							clipPath: 'inset(0 0 0% 0)',
-							x: ['9%', '5%']
+							x: ['4%', '0%']
 						},
 						{
 							duration: 0.94,

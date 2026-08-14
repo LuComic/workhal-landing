@@ -1,9 +1,9 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"page_title": "workhal — tööpäevaks loodud töökoha portaal",
-	"page_description": "workhal koondab töökoha juhendid, graafikud, failid ja igapäevased vastused ühte selgesse portaali, kus töötajatel on keskendunud vaade ning juhatajatel mugav kontroll sisu üle.",
-	"preview_description": "Anna igale vahetusele üks selge algus.",
-	"preview_image_alt": "workhal: anna igale vahetusele üks selge algus",
+	"page_title": "Korrasta oma töökoha teadmised | workhal",
+	"page_description": "Korrasta workhalis töökoha juhendid, graafikud, failid ja igapäevased vastused üheks selgeks teadmusbaasiks ja töötajate portaaliks.",
+	"preview_description": "Korrasta oma töökoha teadmised ning anna igale vahetusele üks selge koht juhendite, graafikute, failide ja vastuste leidmiseks.",
+	"preview_image_alt": "workhali töötajate portaal töökoha teadmiste korrastamiseks",
 	"home_label": "workhali avaleht",
 	"back_to_top": "Tagasi üles",
 	"main_navigation": "Põhinavigatsioon",

@@ -1,9 +1,9 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"page_title": "workhal — The workplace portal built for the workday",
-	"page_description": "workhal turns workplace guides, schedules, files, and everyday answers into one clear staff portal with a focused employee view and controlled manager publishing.",
-	"preview_description": "Give every shift one clear place to start.",
-	"preview_image_alt": "workhal: give every shift one clear place to start",
+	"page_title": "Organise your workplace knowledge | workhal",
+	"page_description": "Organise workplace guides, schedules, files, and everyday answers in workhal—a clear employee knowledge base and staff portal built for the workday.",
+	"preview_description": "Organise your workplace knowledge and give every shift one clear place to find guides, schedules, files, and everyday answers.",
+	"preview_image_alt": "workhal staff portal for organising workplace knowledge",
 	"home_label": "workhal home",
 	"back_to_top": "Back to top",
 	"main_navigation": "Main navigation",

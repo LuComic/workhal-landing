@@ -493,10 +493,10 @@ a {
 
 .comparison-screen {
 	position: relative;
+	width: 100%;
 	aspect-ratio: 1.65;
-	margin-top: auto;
+	margin: auto auto 0;
 	overflow: hidden;
-	transform: translateX(5%);
 	border: 1px solid var(--ink);
 	background: white;
 	box-shadow: 10px 10px 0 var(--teal-dark);
@@ -2129,9 +2129,6 @@ a {
 	}
 	.comparison-copy {
 		margin-top: 68px;
-	}
-	.comparison-screen {
-		transform: translateX(5%);
 	}
 	.problem-strip {
 		grid-template-columns: 1fr;

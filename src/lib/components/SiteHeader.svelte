@@ -87,13 +87,13 @@
 
 		<button
 			data-slot="button"
-			class="button button-outline button-icon mobile-toggle"
+			class="mobile-toggle flex items-center justify-center"
 			type="button"
 			aria-label={mobileOpen ? m.close_menu() : m.open_menu()}
 			aria-expanded={mobileOpen}
 			onclick={() => (mobileOpen = !mobileOpen)}
 		>
-			{#if mobileOpen}<X size={22} />{:else}<Menu size={22} />{/if}
+			{#if mobileOpen}<X size={20} />{:else}<Menu size={20} />{/if}
 		</button>
 	</div>
 

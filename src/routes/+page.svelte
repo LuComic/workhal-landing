@@ -170,11 +170,21 @@
 			image: `/features/processed/employee-${featureImageLocale}.png`
 		}
 	];
+
+	const preloadImages = [
+		'/workhal-square.png',
+		'/guide.png',
+		'/today.png',
+		'/calendar.png',
+		'/login.png',
+		...productFeatures.map(({ image }) => image)
+	];
 </script>
 
 <svelte:head>
 	<title>{pageTitle}</title>
 	<meta name="description" content={pageDescription} />
+	<meta name="robots" content="index, follow, max-image-preview:large" />
 	<meta name="theme-color" content="#00877f" />
 	<link rel="canonical" href={canonicalUrl} />
 	<link rel="alternate" hreflang="et" href={estonianUrl} />
@@ -199,6 +209,10 @@
 	<meta name="twitter:description" content={previewDescription} />
 	<meta name="twitter:image" content={previewImageUrl} />
 	<meta name="twitter:image:alt" content={m.preview_image_alt()} />
+
+	{#each preloadImages as image}
+		<link rel="preload" as="image" href={asset(image)} />
+	{/each}
 </svelte:head>
 
 <SiteHeader />
@@ -255,7 +269,7 @@
 				<p data-motion-fade>{m.after_description()}</p>
 			</div>
 			<div class="comparison-screen">
-				<img src="/guide.png" alt={m.guide_image_alt()} />
+				<img src="/guide.png" alt={m.guide_image_alt()} loading="eager" decoding="async" />
 			</div>
 		</div>
 	</section>
@@ -301,7 +315,7 @@
 			</div>
 			<figure class="app-shot app-shot-main">
 				<div class="shot-frame shot-today" use:screenshotReveal={0.08} use:screenshotScroll>
-					<img src="/today.png" alt={m.today_image_alt()} />
+					<img src="/today.png" alt={m.today_image_alt()} loading="eager" decoding="async" />
 				</div>
 			</figure>
 		</div>
@@ -339,7 +353,12 @@
 						<h3>{m.calendar_shot_title()}</h3>
 					</div>
 					<div class="shot-frame shot-calendar" use:screenshotReveal>
-						<img src="/calendar.png" alt={m.calendar_image_alt()} />
+						<img
+							src="/calendar.png"
+							alt={m.calendar_image_alt()}
+							loading="eager"
+							decoding="async"
+						/>
 					</div>
 					<figcaption>{m.calendar_shot_caption()}</figcaption>
 				</figure>
@@ -350,7 +369,7 @@
 						<h3>{m.login_shot_title()}</h3>
 					</div>
 					<div class="shot-frame shot-login" use:screenshotReveal={0.06}>
-						<img src="/login.png" alt={m.login_image_alt()} />
+						<img src="/login.png" alt={m.login_image_alt()} loading="eager" decoding="async" />
 					</div>
 					<figcaption>{m.login_shot_caption()}</figcaption>
 				</figure>
@@ -399,7 +418,7 @@
 								<img
 									src={feature.image}
 									alt={m.feature_screenshot_label({ feature: feature.label })}
-									loading={index < 2 ? 'eager' : 'lazy'}
+									loading="eager"
 									decoding="async"
 								/>
 							</div>
