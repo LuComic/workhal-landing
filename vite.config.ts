@@ -24,6 +24,9 @@ export default defineConfig({
 			project: './project.inlang',
 			outdir: './src/lib/paraglide',
 			emitTsDeclarations: true,
+			// Keep development and production on the same generated module layout.
+			// Switching layouts in one outdir can leave a running dev server with stale imports.
+			outputStructure: 'locale-modules',
 			strategy: ['url', 'cookie', 'preferredLanguage', 'baseLocale'],
 			cookieMaxAge: 60 * 60 * 24 * 365,
 			urlPatterns: [

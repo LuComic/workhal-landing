@@ -11,17 +11,16 @@
 		Home,
 		KeyRound,
 		Megaphone,
-		Menu,
 		PencilLine,
 		Search,
 		ShieldCheck,
-		Users,
-		X
+		Users
 	} from '@lucide/svelte';
-	import BrandMark from '$lib/components/BrandMark.svelte';
+	import SiteFooter from '$lib/components/SiteFooter.svelte';
+	import SiteHeader from '$lib/components/SiteHeader.svelte';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import { m } from '$lib/paraglide/messages.js';
-	import { getLocale, localizeHref, setLocale, type Locale } from '$lib/paraglide/runtime.js';
+	import { getLocale, localizeHref } from '$lib/paraglide/runtime.js';
 	import {
 		chaosToClarity,
 		entrance,
@@ -29,10 +28,6 @@
 		screenshotScroll,
 		textDecode
 	} from '$lib/motion';
-	import { onMount } from 'svelte';
-
-	let mobileOpen = $state(false);
-	let scrolled = $state(false);
 
 	const locale = getLocale();
 	const pageTitle = m.page_title();
@@ -175,26 +170,6 @@
 			image: `/features/processed/employee-${featureImageLocale}.png`
 		}
 	];
-
-	function closeMobile() {
-		mobileOpen = false;
-	}
-
-	function localeHref(targetLocale: Locale) {
-		return `${localizeHref(page.url.pathname, { locale: targetLocale })}${page.url.search}${page.url.hash}`;
-	}
-
-	function changeLocale(event: MouseEvent, targetLocale: Locale) {
-		event.preventDefault();
-		void setLocale(targetLocale);
-	}
-
-	onMount(() => {
-		const updateHeader = () => (scrolled = window.scrollY > 12);
-		updateHeader();
-		window.addEventListener('scroll', updateHeader, { passive: true });
-		return () => window.removeEventListener('scroll', updateHeader);
-	});
 </script>
 
 <svelte:head>
@@ -226,113 +201,7 @@
 	<meta name="twitter:image:alt" content={m.preview_image_alt()} />
 </svelte:head>
 
-<header class:nav-scrolled={scrolled} class="site-header">
-	<div class="site-container header-inner">
-		<a class="brand" href="#top" aria-label={m.home_label()} onclick={closeMobile}>
-			<BrandMark class="brand-logo" />
-			<span>workhal</span>
-		</a>
-
-		<nav class="desktop-nav" aria-label={m.main_navigation()}>
-			<a data-slot="button" class="button button-ghost button-sm" href="#difference"
-				>{m.nav_why_workhal()}</a
-			>
-			<a data-slot="button" class="button button-ghost button-sm" href="#product"
-				>{m.nav_product()}</a
-			>
-			<a data-slot="button" class="button button-ghost button-sm" href="#roles"
-				>{m.nav_for_teams()}</a
-			>
-			<a data-slot="button" class="button button-ghost button-sm" href="#questions"
-				>{m.nav_questions()}</a
-			>
-		</nav>
-
-		<div class="header-actions">
-			<nav class="locale-switcher" aria-label={m.language_navigation()}>
-				<a
-					href={localeHref('et')}
-					hreflang="et"
-					lang="et"
-					aria-label={m.language_estonian()}
-					aria-current={locale === 'et' ? 'page' : undefined}
-					data-sveltekit-reload
-					onclick={(event) => changeLocale(event, 'et')}>ET</a
-				>
-				<span aria-hidden="true">/</span>
-				<a
-					href={localeHref('en')}
-					hreflang="en"
-					lang="en"
-					aria-label={m.language_english()}
-					aria-current={locale === 'en' ? 'page' : undefined}
-					data-sveltekit-reload
-					onclick={(event) => changeLocale(event, 'en')}>EN</a
-				>
-			</nav>
-			<a
-				data-slot="button"
-				class="button button-primary header-cta"
-				href="#product"
-				aria-label={m.explore_workhal()}
-			>
-				<span class="header-cta-full">{m.explore_workhal()}</span>
-				<span class="header-cta-short" aria-hidden="true">{m.explore()}</span>
-				<ArrowRight data-icon="inline-end" size={17} />
-			</a>
-		</div>
-
-		<button
-			data-slot="button"
-			class="button button-outline button-icon mobile-toggle"
-			type="button"
-			aria-label={mobileOpen ? m.close_menu() : m.open_menu()}
-			aria-expanded={mobileOpen}
-			onclick={() => (mobileOpen = !mobileOpen)}
-		>
-			{#if mobileOpen}<X size={22} />{:else}<Menu size={22} />{/if}
-		</button>
-	</div>
-
-	{#if mobileOpen}
-		<nav class="mobile-nav" aria-label={m.mobile_navigation()}>
-			<a data-slot="button" class="button button-ghost" href="#difference" onclick={closeMobile}
-				>{m.nav_why_workhal()}</a
-			>
-			<a data-slot="button" class="button button-ghost" href="#product" onclick={closeMobile}
-				>{m.nav_product()}</a
-			>
-			<a data-slot="button" class="button button-ghost" href="#roles" onclick={closeMobile}
-				>{m.nav_for_teams()}</a
-			>
-			<a data-slot="button" class="button button-ghost" href="#questions" onclick={closeMobile}
-				>{m.nav_questions()}</a
-			>
-			<div class="mobile-locale-switcher" role="group" aria-label={m.language_navigation()}>
-				<a
-					href={localeHref('et')}
-					hreflang="et"
-					lang="et"
-					aria-current={locale === 'et' ? 'page' : undefined}
-					data-sveltekit-reload
-					onclick={(event) => changeLocale(event, 'et')}>ET</a
-				>
-				<a
-					href={localeHref('en')}
-					hreflang="en"
-					lang="en"
-					aria-current={locale === 'en' ? 'page' : undefined}
-					data-sveltekit-reload
-					onclick={(event) => changeLocale(event, 'en')}>EN</a
-				>
-			</div>
-			<a data-slot="button" class="button button-primary" href="#product" onclick={closeMobile}>
-				{m.explore_workhal()}
-				<ArrowRight data-icon="inline-end" size={17} />
-			</a>
-		</nav>
-	{/if}
-</header>
+<SiteHeader />
 
 <main id="top">
 	<section class="hero-intro">
@@ -663,23 +532,4 @@
 	</section>
 </main>
 
-<footer class="site-footer">
-	<div class="site-container footer-inner">
-		<a class="brand" href="#top" aria-label={m.back_to_top()}>
-			<BrandMark class="brand-logo" />
-			<span>workhal</span>
-		</a>
-		<p>{m.footer_tagline()}</p>
-		<nav aria-label={m.footer_navigation()} class="flex flex-wrap gap-6">
-			<a data-slot="button" class="button button-ghost button-sm" href="#product"
-				>{m.nav_product()}</a
-			>
-			<a data-slot="button" class="button button-ghost button-sm" href="#difference"
-				>{m.nav_why_workhal()}</a
-			>
-			<a data-slot="button" class="button button-ghost button-sm" href="#questions"
-				>{m.nav_questions()}</a
-			>
-		</nav>
-	</div>
-</footer>
+<SiteFooter />
