@@ -12,6 +12,7 @@
 		KeyRound,
 		Megaphone,
 		Menu,
+		PencilLine,
 		Search,
 		ShieldCheck,
 		Users,
@@ -43,6 +44,7 @@
 	const englishUrl = $derived(new URL(localizeHref('/', { locale: 'en' }), page.url.origin).href);
 	const openGraphLocale = locale === 'et' ? 'et_EE' : 'en_GB';
 	const openGraphAlternateLocale = locale === 'et' ? 'en_GB' : 'et_EE';
+	const featureImageLocale = locale === 'et' ? 'est' : 'en';
 
 	const faqs = [
 		{
@@ -78,7 +80,8 @@
 				m.feature_today_detail_two(),
 				m.feature_today_detail_three()
 			],
-			tone: 'mint'
+			tone: 'mint',
+			image: `/features/processed/today-${featureImageLocale}.png`
 		},
 		{
 			icon: BookOpen,
@@ -90,7 +93,21 @@
 				m.feature_guides_detail_two(),
 				m.feature_guides_detail_three()
 			],
-			tone: 'paper'
+			tone: 'paper',
+			image: `/features/processed/guide-${featureImageLocale}.png`
+		},
+		{
+			icon: PencilLine,
+			label: m.feature_creation_label(),
+			title: m.feature_creation_title(),
+			description: m.feature_creation_description(),
+			details: [
+				m.feature_creation_detail_one(),
+				m.feature_creation_detail_two(),
+				m.feature_creation_detail_three()
+			],
+			tone: 'teal',
+			image: `/features/processed/creation-${featureImageLocale}.png`
 		},
 		{
 			icon: CalendarDays,
@@ -102,7 +119,8 @@
 				m.feature_calendar_detail_two(),
 				m.feature_calendar_detail_three()
 			],
-			tone: 'orange'
+			tone: 'orange',
+			image: `/features/processed/calendar-${featureImageLocale}.png`
 		},
 		{
 			icon: Megaphone,
@@ -114,7 +132,8 @@
 				m.feature_announcements_detail_two(),
 				m.feature_announcements_detail_three()
 			],
-			tone: 'ink'
+			tone: 'ink',
+			image: `/features/processed/announcement-${featureImageLocale}.png`
 		},
 		{
 			icon: FileText,
@@ -126,7 +145,8 @@
 				m.feature_documents_detail_two(),
 				m.feature_documents_detail_three()
 			],
-			tone: 'paper'
+			tone: 'paper',
+			image: `/features/processed/docs-${featureImageLocale}.png`
 		},
 		{
 			icon: Search,
@@ -138,7 +158,8 @@
 				m.feature_search_detail_two(),
 				m.feature_search_detail_three()
 			],
-			tone: 'mint'
+			tone: 'mint',
+			image: `/features/processed/search-${featureImageLocale}.png`
 		},
 		{
 			icon: ShieldCheck,
@@ -150,7 +171,8 @@
 				m.feature_access_detail_two(),
 				m.feature_access_detail_three()
 			],
-			tone: 'teal'
+			tone: 'teal',
+			image: `/features/processed/employee-${featureImageLocale}.png`
 		}
 	];
 
@@ -489,7 +511,11 @@
 						<article class={`feature-story-card feature-tone-${feature.tone}`}>
 							<div class="feature-story-copy">
 								<div class="feature-story-meta">
-									<span>{String(index + 1).padStart(2, '0')} / 07</span>
+									<span
+										>{String(index + 1).padStart(2, '0')} / {String(
+											productFeatures.length
+										).padStart(2, '0')}</span
+									>
 									<span><Icon size={19} /> {feature.label}</span>
 								</div>
 								<h3>{feature.title}</h3>
@@ -500,19 +526,13 @@
 									{/each}
 								</ul>
 							</div>
-							<div
-								class="feature-media-placeholder"
-								role="img"
-								aria-label={m.feature_screenshot_label({ feature: feature.label })}
-							>
-								<div class="placeholder-bar">
-									<span></span><span></span><span></span>
-								</div>
-								<div class="placeholder-body">
-									<Icon size={34} />
-									<strong>{feature.label}</strong>
-									<small>{m.product_screenshot_placeholder()}</small>
-								</div>
+							<div class="feature-story-media">
+								<img
+									src={feature.image}
+									alt={m.feature_screenshot_label({ feature: feature.label })}
+									loading={index < 2 ? 'eager' : 'lazy'}
+									decoding="async"
+								/>
 							</div>
 						</article>
 					{/each}

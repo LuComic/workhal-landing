@@ -5,6 +5,14 @@
 @import '@fontsource/manrope/700.css';
 @import '@fontsource/manrope/800.css';
 
+@font-face {
+	font-family: 'Alcyone';
+	src: url('/fonts/alcyone-medium.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
 :root {
 	--ink: #171b1a;
 	--ink-soft: #394442;
@@ -18,6 +26,7 @@
 	--line: #dfe6e4;
 	--muted: #70817f;
 	--container: 1220px;
+	--font-display: 'Alcyone', ui-sans-serif, system-ui, sans-serif;
 	font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
 	font-synthesis: none;
 	color: var(--ink);
@@ -42,6 +51,15 @@ body,
 button,
 a {
 	font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-display);
 }
 
 button,
@@ -771,50 +789,22 @@ a {
 	flex: 0 0 auto;
 }
 
-.feature-media-placeholder {
-	display: flex;
+.feature-story-media {
+	display: block;
 	min-width: 0;
 	min-height: 0;
-	flex-direction: column;
-	align-self: stretch;
+	align-self: center;
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
 	border: 1px solid currentColor;
-	background: rgb(255 255 255 / 76%);
+	background: white;
 }
 
-.placeholder-bar {
-	display: flex;
-	gap: 6px;
-	border-bottom: 1px solid currentColor;
-	padding: 12px;
-}
-
-.placeholder-bar span {
-	width: 6px;
-	height: 6px;
-	border: 1px solid currentColor;
-	background: transparent;
-}
-
-.placeholder-body {
-	display: flex;
-	flex: 1;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 24px;
-	text-align: center;
-}
-
-.placeholder-body strong {
-	margin-top: 18px;
-	font-size: 17px;
-}
-
-.placeholder-body small {
-	margin-top: 7px;
-	font-size: 12px;
-	font-weight: 600;
-	opacity: 0.7;
+.feature-story-media img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .feature-tone-mint {
@@ -834,10 +824,6 @@ a {
 	color: rgb(255 255 255 / 70%);
 }
 
-.feature-tone-ink .feature-media-placeholder {
-	background: rgb(255 255 255 / 8%);
-}
-
 .feature-tone-teal {
 	background: var(--teal);
 	color: white;
@@ -851,10 +837,6 @@ a {
 
 .feature-tone-teal .feature-story-copy > p {
 	color: rgb(255 255 255 / 76%);
-}
-
-.feature-tone-teal .feature-media-placeholder {
-	background: rgb(255 255 255 / 10%);
 }
 
 .section-heading {
@@ -1445,8 +1427,8 @@ a {
 		margin-top: 68px;
 		font-size: 39px;
 	}
-	.feature-media-placeholder {
-		min-height: 320px;
+	.feature-story-media {
+		width: 100%;
 	}
 
 	.site-header.nav-scrolled {
