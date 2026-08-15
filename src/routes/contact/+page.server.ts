@@ -2,7 +2,7 @@ import { env } from '$env/dynamic/private';
 import { fail } from '@sveltejs/kit';
 import type { Actions } from './$types';
 
-const allowedIntents = new Set(['question', 'demo', 'setup']);
+const allowedIntents = new Set(['waitlist', 'question', 'demo', 'setup']);
 
 function readField(data: FormData, key: string, maxLength: number) {
 	return String(data.get(key) ?? '')
@@ -36,10 +36,11 @@ export const actions = {
 			organization: readField(data, 'organization', 120),
 			message: readField(data, 'message', 3000)
 		};
+		const isWaitlist = values.intent === 'waitlist';
 		const errors = {
-			name: values.name.length < 2,
+			name: !isWaitlist && values.name.length < 2,
 			email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email),
-			message: values.message.length < 10
+			message: !isWaitlist && values.message.length < 10
 		};
 
 		if (errors.name || errors.email || errors.message) {
@@ -51,11 +52,35 @@ export const actions = {
 		}
 
 		const intentLabels: Record<string, string> = {
+			waitlist: 'Waitlist',
 			question: 'Question',
 			demo: 'Workhal demo',
 			setup: 'On-site setup help'
 		};
-		const subject = `[Workhal contact] ${intentLabels[values.intent]} from ${values.name}`;
+		const subject = isWaitlist
+			? `[Workhal waitlist] ${values.email}`
+			: `[Workhal contact] ${intentLabels[values.intent]} from ${values.name}`;
+		const emailText = isWaitlist
+			? [`Reason: ${intentLabels[values.intent]}`, `Email: ${values.email}`, `Page: ${url.href}`]
+			: [
+					`Reason: ${intentLabels[values.intent]}`,
+					`Name: ${values.name}`,
+					`Email: ${values.email}`,
+					`Workplace: ${values.organization || 'Not provided'}`,
+					`Page: ${url.href}`,
+					'',
+					values.message
+				];
+		const emailHtml = isWaitlist
+			? `<h2>New Workhal waitlist signup</h2>
+					<p><strong>Email:</strong> ${escapeHtml(values.email)}</p>`
+			: `<h2>New Workhal message</h2>
+					<p><strong>Reason:</strong> ${escapeHtml(intentLabels[values.intent])}</p>
+					<p><strong>Name:</strong> ${escapeHtml(values.name)}</p>
+					<p><strong>Email:</strong> ${escapeHtml(values.email)}</p>
+					<p><strong>Workplace:</strong> ${escapeHtml(values.organization || 'Not provided')}</p>
+					<hr>
+					<p>${escapeHtml(values.message).replace(/\n/g, '<br>')}</p>`;
 		const response = await fetch('https://api.resend.com/emails', {
 			method: 'POST',
 			headers: {
@@ -67,22 +92,8 @@ export const actions = {
 				to: [env.CONTACT_TO_EMAIL],
 				reply_to: values.email,
 				subject,
-				text: [
-					`Reason: ${intentLabels[values.intent]}`,
-					`Name: ${values.name}`,
-					`Email: ${values.email}`,
-					`Workplace: ${values.organization || 'Not provided'}`,
-					`Page: ${url.href}`,
-					'',
-					values.message
-				].join('\n'),
-				html: `<h2>New Workhal message</h2>
-					<p><strong>Reason:</strong> ${escapeHtml(intentLabels[values.intent])}</p>
-					<p><strong>Name:</strong> ${escapeHtml(values.name)}</p>
-					<p><strong>Email:</strong> ${escapeHtml(values.email)}</p>
-					<p><strong>Workplace:</strong> ${escapeHtml(values.organization || 'Not provided')}</p>
-					<hr>
-					<p>${escapeHtml(values.message).replace(/\n/g, '<br>')}</p>`
+				text: emailText.join('\n'),
+				html: emailHtml
 			})
 		});
 
@@ -90,6 +101,6 @@ export const actions = {
 			return fail(503, { values, errorCode: 'unavailable' });
 		}
 
-		return { success: true };
+		return { success: true, intent: values.intent };
 	}
 } satisfies Actions;

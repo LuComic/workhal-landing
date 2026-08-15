@@ -397,6 +397,15 @@ a {
 	align-items: center;
 	gap: 7px;
 }
+
+.hero-beta {
+	color: var(--teal-dark);
+	font-size: 13px;
+	font-weight: 900;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
 .hero-facts svg {
 	color: var(--teal);
 }
@@ -2115,6 +2124,9 @@ a {
 	.hero-facts {
 		justify-content: flex-start;
 		padding: 22px 20px;
+	}
+	.hero-beta {
+		flex-basis: 100%;
 	}
 	.transformation {
 		grid-template-columns: 1fr;

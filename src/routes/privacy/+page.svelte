@@ -54,6 +54,11 @@
 			</section>
 
 			<section>
+				<h2>{m.privacy_waitlist_title()}</h2>
+				<p>{m.privacy_waitlist_body()}</p>
+			</section>
+
+			<section>
 				<h2>{m.privacy_retention_title()}</h2>
 				<p>{m.privacy_retention_body()}</p>
 			</section>

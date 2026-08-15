@@ -7,10 +7,11 @@
 	import { entrance, textDecode } from '$lib/motion';
 	import { m } from '$lib/paraglide/messages.js';
 	import { getLocale, localizeHref } from '$lib/paraglide/runtime.js';
-	import { onMount, tick } from 'svelte';
+	import { tick } from 'svelte';
 
 	type ContactForm = {
 		success?: boolean;
+		intent?: string;
 		values?: {
 			intent: string;
 			name: string;
@@ -23,8 +24,9 @@
 	} | null;
 
 	let { form }: { form: ContactForm } = $props();
-	let intent = $state('question');
+	let intent = $state(form?.values?.intent ?? form?.intent ?? 'question');
 	let submitting = $state(false);
+	const isWaitlist = $derived(intent === 'waitlist');
 
 	const locale = getLocale();
 	const canonicalUrl = $derived(new URL(page.url.pathname, page.url.origin).href);
@@ -52,16 +54,17 @@
 			value: 'setup',
 			title: m.contact_intent_setup_title(),
 			description: m.contact_intent_setup_description()
+		},
+		{
+			value: 'waitlist',
+			title: m.contact_intent_waitlist_title(),
+			description: m.contact_intent_waitlist_description()
 		}
 	];
 
 	function selectSetup() {
 		intent = 'setup';
 	}
-
-	onMount(() => {
-		if (form?.values?.intent) intent = form.values.intent;
-	});
 </script>
 
 <svelte:head>
@@ -96,8 +99,12 @@
 				{#if form?.success}
 					<div class="form-success" role="status" tabindex="-1">
 						<div class="form-success-icon"><Check size={30} /></div>
-						<h2>{m.contact_success_title()}</h2>
-						<p>{m.contact_success_description()}</p>
+						<h2>{isWaitlist ? m.contact_waitlist_success_title() : m.contact_success_title()}</h2>
+						<p>
+							{isWaitlist
+								? m.contact_waitlist_success_description()
+								: m.contact_success_description()}
+						</p>
 						<a data-slot="button" class="button button-outline" href={contactHref}
 							>{m.contact_success_action()}</a
 						>
@@ -144,24 +151,26 @@
 							</div>
 						</fieldset>
 
-						<div class:error={form?.errors?.name} class="form-field">
-							<label for="name"
-								>{m.contact_name_label()} <span>({m.contact_required()})</span></label
-							>
-							{#if form?.errors?.name}<p class="field-error" id="name-error">
-									{m.contact_error_name()}
-								</p>{/if}
-							<input
-								id="name"
-								name="name"
-								type="text"
-								autocomplete="name"
-								value={form?.values?.name ?? ''}
-								aria-describedby={form?.errors?.name ? 'name-error' : undefined}
-								aria-invalid={form?.errors?.name ? 'true' : undefined}
-								required
-							/>
-						</div>
+						{#if !isWaitlist}
+							<div class:error={form?.errors?.name} class="form-field">
+								<label for="name"
+									>{m.contact_name_label()} <span>({m.contact_required()})</span></label
+								>
+								{#if form?.errors?.name}<p class="field-error" id="name-error">
+										{m.contact_error_name()}
+									</p>{/if}
+								<input
+									id="name"
+									name="name"
+									type="text"
+									autocomplete="name"
+									value={form?.values?.name ?? ''}
+									aria-describedby={form?.errors?.name ? 'name-error' : undefined}
+									aria-invalid={form?.errors?.name ? 'true' : undefined}
+									required
+								/>
+							</div>
+						{/if}
 
 						<div class:error={form?.errors?.email} class="form-field">
 							<label for="email"
@@ -185,7 +194,7 @@
 							/>
 						</div>
 
-						{#if intent !== 'question'}
+						{#if intent === 'demo' || intent === 'setup'}
 							<div class="form-field">
 								<label for="organization"
 									>{m.contact_company_label()} <span>({m.contact_optional()})</span></label
@@ -202,23 +211,25 @@
 							</div>
 						{/if}
 
-						<div class:error={form?.errors?.message} class="form-field">
-							<label for="message"
-								>{m.contact_message_label()} <span>({m.contact_required()})</span></label
-							>
-							<p class="field-hint" id="message-hint">{m.contact_message_hint()}</p>
-							{#if form?.errors?.message}<p class="field-error" id="message-error">
-									{m.contact_error_message()}
-								</p>{/if}
-							<textarea
-								id="message"
-								name="message"
-								rows="6"
-								aria-describedby={`message-hint${form?.errors?.message ? ' message-error' : ''}`}
-								aria-invalid={form?.errors?.message ? 'true' : undefined}
-								required>{form?.values?.message ?? ''}</textarea
-							>
-						</div>
+						{#if !isWaitlist}
+							<div class:error={form?.errors?.message} class="form-field">
+								<label for="message"
+									>{m.contact_message_label()} <span>({m.contact_required()})</span></label
+								>
+								<p class="field-hint" id="message-hint">{m.contact_message_hint()}</p>
+								{#if form?.errors?.message}<p class="field-error" id="message-error">
+										{m.contact_error_message()}
+									</p>{/if}
+								<textarea
+									id="message"
+									name="message"
+									rows="6"
+									aria-describedby={`message-hint${form?.errors?.message ? ' message-error' : ''}`}
+									aria-invalid={form?.errors?.message ? 'true' : undefined}
+									required>{form?.values?.message ?? ''}</textarea
+								>
+							</div>
+						{/if}
 
 						<div class="website-field" aria-hidden="true">
 							<label for="website">Website</label>
@@ -233,11 +244,15 @@
 								disabled={submitting}
 								aria-busy={submitting}
 							>
-								{submitting ? m.contact_sending() : m.contact_submit()}
+								{submitting
+									? m.contact_sending()
+									: isWaitlist
+										? m.contact_waitlist_submit()
+										: m.contact_submit()}
 								<Send data-icon="inline-end" size={17} />
 							</button>
 							<p>
-								{m.contact_privacy()}
+								{isWaitlist ? m.contact_waitlist_privacy() : m.contact_privacy()}
 								<a href={privacyHref}>{m.contact_privacy_link()}</a>
 							</p>
 						</div>

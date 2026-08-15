@@ -236,6 +236,7 @@
 				</div>
 			</div>
 			<div class="hero-facts" aria-label={m.workhal_highlights()} use:textDecode>
+				<strong class="hero-beta" data-motion-fade>{m.hero_beta_label()}</strong>
 				<span data-motion-fade><Check size={16} /> {m.highlight_no_account()}</span>
 				<span data-motion-fade><Check size={16} /> {m.highlight_controlled_publishing()}</span>
 				<span data-motion-fade><Check size={16} /> {m.highlight_shared_devices()}</span>
