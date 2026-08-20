@@ -222,7 +222,7 @@
 		<div class="site-container hero-inner">
 			<div class="hero-copy" use:entrance={{ distance: 18 }} use:textDecode>
 				<h1 data-motion-text>
-					{m.hero_title_start()} <span class="hero-accent">{m.hero_title_accent()}</span>
+					{m.hero_title()}
 				</h1>
 				<p data-motion-fade>{m.hero_description()}</p>
 				<div class="hero-actions" data-motion-item>
