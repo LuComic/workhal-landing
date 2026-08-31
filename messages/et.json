@@ -1,6 +1,6 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"page_title": "Korrasta oma töökoha teadmised - workhal",
+	"page_title": "Korrasta töökoha teadmised - workhal",
 	"page_description": "Korrasta workhalis töökoha juhendid, graafikud, failid ja igapäevased vastused üheks selgeks teadmusbaasiks ja töötajate portaaliks.",
 	"preview_description": "Korrasta oma töökoha teadmised ning anna igale vahetusele üks selge koht juhendite, graafikute, failide ja vastuste leidmiseks.",
 	"preview_image_alt": "workhali töötajate portaal töökoha teadmiste korrastamiseks",
@@ -175,7 +175,7 @@
 	"cta_description": "Anna töötajatele üks selge tööpäeva allikas ja juhatajatels üks koht, kus seda usaldusväärsena hoida.",
 	"cta_action": "Vaata workhali töös",
 	"footer_tagline": "Tööpäevaks loodud töökoha portaal.",
-	"about_page_title": "Miks see töökoha portaal olemas on - workhal",
+	"about_page_title": "Miks workhal olemas on - workhal",
 	"about_page_description": "Mõtted, päriselus kogetud probleemid ja isiklik lugu workhali taga — töökoha portaal, mis muudab kasuliku teabe lihtsamini leitavaks ja kasutatavaks.",
 	"about_title": "Selgem viis teadmiste edasiandmiseks.",
 	"about_intro": "workhal sai alguse lihtsast probleemist: korduvad küsimused ja oluline teave igal pool laiali.",
