@@ -1922,7 +1922,7 @@ a {
 	}
 	.mobile-locale-switcher {
 		gap: 18px;
-		padding: 10px 16px 0;
+		padding: 10px 16px 0 24px;
 		font-size: 13px;
 	}
 	.mobile-nav .button-primary {
@@ -2247,6 +2247,10 @@ a {
 	}
 	.inner-hero-copy h1 {
 		font-size: clamp(48px, 14vw, 68px);
+	}
+	.about-hero .inner-hero-copy h1:lang(et) {
+		font-size: clamp(44px, 12vw, 58px);
+		overflow-wrap: anywhere;
 	}
 	.contact-intro h1 {
 		font-size: clamp(32px, 8.5vw, 40px);
