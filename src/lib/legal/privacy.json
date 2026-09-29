@@ -1,0 +1,136 @@
+{
+	"en": {
+		"title": "Privacy policy",
+		"updated": "Last updated 29 September 2026",
+		"intro": "How Workhal handles website, account and workplace information.",
+		"sections": [
+			{
+				"id": "section-1",
+				"title": "Who is responsible",
+				"body": "Workhal is operated by Lukas Jääger. For privacy requests, contact lukasjaager@gmail.com. This policy covers workhal.com, app.workhal.com, enquiries and the beta waitlist. Lukas is the controller for website enquiries, account administration, service security and communications. Your employer or other workplace operator normally determines why employee and workplace information is used and is the controller for that information; Workhal processes it on that organization’s instructions. Ask your workplace administrator about its own purposes, legal basis and retention rules. A separate data-processing agreement is needed where required by law; this policy does not replace it."
+			},
+			{
+				"id": "section-2",
+				"title": "Information we receive",
+				"body": "You may provide a name, email address, profile image, sign-in information, organization membership and support messages. Workplace administrators may enter employee names, email addresses, departments, job titles, roles and invitation status before an employee registers. Workplace content can include guides, files, links, events, schedules, assignments, announcements, acknowledgements, questions, shared worker notes and shift-trade proposals and reasons. Activity records identify actions, actors and times. Do not enter sensitive health, identity-document, payment-card or other unnecessary personal information."
+			},
+			{
+				"id": "section-3",
+				"title": "Where information comes from",
+				"body": "Information comes from you, workplace owners and colleagues, your sign-in provider, and integrations enabled by a workplace owner. If Deputy is connected, Workhal imports employee and area identifiers and roster details, including assigned people, times and publication status. Approved shift trades may update assignments in Deputy. Technical providers also process connection information such as IP addresses, browser details, request times and errors."
+			},
+			{
+				"id": "section-4",
+				"title": "Why information is used",
+				"body": "We use information to operate accounts and workplaces, authenticate access, display content and schedules, deliver invitations and notifications, process approved shift trades, respond to requests and prevent misuse. Contractual necessity applies to providing services you request as a contracting user. Legitimate interests apply to reliable operation, security and responding to ordinary enquiries, balanced against your rights. Legal obligations apply when we must retain or disclose information by law. Waitlist and optional update emails are based on your consent; you can withdraw it by email. Your workplace determines the legal basis for its employment-related processing."
+			},
+			{
+				"id": "section-5",
+				"title": "Who can see workplace information",
+				"body": "Visibility depends on the workplace’s access settings and your role. Published content in a public workplace can be read by anyone with its address. A join code or private link gives accountless access to shared published content; anyone receiving a forwarded credential may use it. Members can see additional member content, including shared worker notes and permitted schedules. Notes are shared within the workplace, not a private personal diary. Owners and authorized managers can see staff information and activity appropriate to their roles. Files already downloaded and information copied by others cannot be recalled by changing a setting."
+			},
+			{
+				"id": "section-6",
+				"title": "Service providers and integrations",
+				"body": "We use Vercel for web hosting, Clerk for authentication, accounts, organizations and invitations, Convex for application functions, database and file storage, and Resend for delivery of website contact and waitlist messages. The receiving email provider processes correspondence; messages sent to our Gmail address are handled by Google. Deputy processes integration data when a workplace connects it. These providers receive information needed for their functions and may process some service and security information under their own policies. We may disclose information when legally required or to protect rights and service security. We do not sell personal information."
+			},
+			{
+				"id": "section-7",
+				"title": "Cookies and browser storage",
+				"body": "Clerk uses authentication cookies and related storage to keep sessions secure. Language preferences are remembered for up to one year. The application stores the selected workplace, theme and, if used, a guest access credential in the browser. Remembered guest access expires after 30 days; leaving the workplace clears its saved access. On shared devices, sign out and leave the workplace when finished. Clearing cookies or local storage may sign you out or reset preferences. The current application code does not include advertising trackers; hosting and authentication services still process necessary technical information."
+			},
+			{
+				"id": "section-8",
+				"title": "International processing",
+				"body": "Providers may process information outside your country, including outside the European Economic Area. Where the GDPR applies, transfers must use a valid mechanism such as an adequacy decision or appropriate contractual safeguards. Contact us for information about the safeguards and providers applicable to your data. A regional database location does not mean every provider or support operation is confined to that region."
+			},
+			{
+				"id": "section-9",
+				"title": "Retention and deletion",
+				"body": "Account and workplace information is retained while needed to operate the service and for the workplace’s instructed purposes. Deactivating an employee removes access but preserves the workplace profile and historical links; it does not delete the global Clerk account. Removing a profile and deleting an account are different actions. Some history or workplace content may remain where needed for organizational records or legal claims. Temporary worker-note lines expire 24 hours after the last relevant save; lines marked with ! remain until edited or deleted. Enquiries are retained as needed to reply and follow up, and waitlist details until withdrawal or the list is no longer needed. Backups and provider logs may persist according to their applicable retention cycles. Contact us to arrange deletion or obtain the retention information relevant to your request."
+			},
+			{
+				"id": "section-10",
+				"title": "Your rights and choices",
+				"body": "Where applicable, you can request access, correction, deletion, restriction and portability of your personal data, object to processing based on legitimate interests, and withdraw consent without affecting earlier lawful processing. We may need to verify your identity. Contact your workplace first for employment and workplace records; we will assist it with requests concerning data processed on its behalf. For our own processing, email lukasjaager@gmail.com. You may complain to your local data protection authority; in Estonia this is Andmekaitse Inspektsioon (aki.ee). GDPR requests are normally answered within one month, subject to permitted extensions."
+			},
+			{
+				"id": "section-11",
+				"title": "Security, automated decisions and children",
+				"body": "We use authentication, workplace permissions and other technical controls to limit access. No online service can guarantee absolute security. Report suspected unauthorized access to us and your workplace owner. Workhal does not itself make solely automated decisions with legal or similarly significant effects about employees. The service is intended for workplace use, not directed to children; organizations must ensure lawful use by any young workers and appropriate supervision."
+			},
+			{
+				"id": "section-12",
+				"title": "Updates and contact",
+				"body": "We update this policy when processing or the service changes and display the revision date here. Where required, we will give additional notice or seek consent. Contact Lukas Jääger at lukasjaager@gmail.com for privacy questions or assistance."
+			}
+		]
+	},
+	"et": {
+		"title": "Privaatsuspoliitika",
+		"updated": "Viimati uuendatud 29. septembril 2026",
+		"intro": "Kuidas Workhal töötleb veebilehe, konto ja töökoha andmeid.",
+		"sections": [
+			{
+				"id": "section-1",
+				"title": "Kes vastutab",
+				"body": "Workhali haldab Lukas Jääger. Privaatsusküsimustes kirjuta aadressile lukasjaager@gmail.com. See poliitika hõlmab veebilehti workhal.com ja app.workhal.com, päringuid ning beetaversiooni ootenimekirja. Lukas vastutab veebipäringute, kontohalduse, teenuse turvalisuse ja suhtluse andmetöötluse eest. Töötajate ja töökoha andmete kasutamise eesmärgid määrab üldjuhul tööandja või muu töökoha haldaja, kes on nende andmete vastutav töötleja; Workhal töötleb neid organisatsiooni juhiste alusel. Töökoha eesmärkide, õigusliku aluse ja säilitamise kohta küsi administraatorilt. Seaduses nõutud juhtudel on vaja eraldi andmetöötluslepingut; see poliitika seda ei asenda."
+			},
+			{
+				"id": "section-2",
+				"title": "Milliseid andmeid saame",
+				"body": "Võid anda nime, e-posti aadressi, profiilipildi, sisselogimisandmed, organisatsiooni liikmesuse andmed ja tugisõnumid. Töökoha haldajad võivad lisada töötaja nime, e-posti, osakonna, ametinimetuse, rolli ja kutse oleku enne konto loomist. Töökoha sisu võib hõlmata juhendeid, faile, linke, sündmusi, graafikuid, ülesandeid, teateid, lugemiskinnitusi, küsimusi, ühiseid märkmeid ning vahetuste vahetamise ettepanekuid ja põhjendusi. Tegevusajalugu salvestab toiminguid, tegijaid ja aegu. Ära sisesta tarbetuid tervise-, isikut tõendava dokumendi, maksekaardi ega muid tundlikke andmeid."
+			},
+			{
+				"id": "section-3",
+				"title": "Andmete allikad",
+				"body": "Andmed pärinevad sinult, töökoha omanikelt ja kolleegidelt, sisselogimisteenuse pakkujalt ning omaniku ühendatud teenustest. Deputy ühendamisel impordib Workhal töötajate ja tööalade tunnuseid ning graafikuandmeid, sealhulgas määratud töötajaid, aegu ja avaldamise olekut. Heakskiidetud vahetuste vahetamine võib muuta määramisi Deputys. Tehnilised teenusepakkujad töötlevad ka IP-aadresse, brauseriandmeid, päringute aegu ja veateateid."
+			},
+			{
+				"id": "section-4",
+				"title": "Eesmärgid ja õiguslik alus",
+				"body": "Kasutame andmeid kontode ja töökohtade toimimiseks, ligipääsu kontrolliks, sisu ja graafikute kuvamiseks, kutsete ja teavituste edastamiseks, kinnitatud vahetuste töötlemiseks, päringutele vastamiseks ning väärkasutuse ennetamiseks. Lepingu täitmine on aluseks lepingulise kasutaja tellitud teenusele. Teenuse töökindluse, turvalisuse ja tavapärastele päringutele vastamise aluseks on õigustatud huvi, mida kaalutakse sinu õiguste suhtes. Seadusest tulenev kohustus kehtib kohustusliku säilitamise või avaldamise korral. Ootenimekirja ja vabatahtlike uudiste saatmine põhineb nõusolekul, mille saab e-posti teel tagasi võtta. Tööalase andmetöötluse aluse määrab sinu töökoht."
+			},
+			{
+				"id": "section-5",
+				"title": "Kes näeb töökoha andmeid",
+				"body": "Nähtavus sõltub ligipääsuseadetest ja rollist. Avaliku töökoha avaldatud sisu näeb igaüks, kellel on selle aadress. Liitumiskood või privaatne link annab kontota ligipääsu jagatud sisule; edasi saadetud ligipääsuandmeid võib kasutada ka nende uus saaja. Liikmed näevad täiendavat sisu, sealhulgas ühiseid töötajamärkmeid ja lubatud graafikuid. Märkmed on töökoha ühine sisu, mitte isiklik päevik. Omanikud ja volitatud haldajad näevad oma rollile vastavaid töötajaandmeid ja tegevusajalugu. Juba alla laaditud faile või kopeeritud teavet ei saa seadete muutmisega tagasi kutsuda."
+			},
+			{
+				"id": "section-6",
+				"title": "Teenusepakkujad ja ühendused",
+				"body": "Kasutame Vercelit veebimajutuseks, Clerki autentimiseks, kontodeks, organisatsioonideks ja kutseteks, Convexit rakenduse loogikaks, andmebaasiks ja failide hoidmiseks ning Resendi veebipäringute ja ootenimekirja sõnumite edastamiseks. Kirjavahetust töötleb ka saaja e-posti teenusepakkuja; meie Gmaili aadressile saadetud kirju töötleb Google. Deputy töötleb ühenduse andmeid, kui töökoht selle aktiveerib. Pakkujad saavad oma ülesannete täitmiseks vajalikud andmed ning võivad töödelda teenuse- ja turvaandmeid oma tingimuste alusel. Võime andmeid avaldada seadusest tulenevalt või õiguste ja turvalisuse kaitseks. Me ei müü isikuandmeid."
+			},
+			{
+				"id": "section-7",
+				"title": "Küpsised ja brauseri salvestusruum",
+				"body": "Clerk kasutab turvaliste seansside jaoks autentimisküpsiseid ja seotud salvestusruumi. Keelevalik säilib kuni aasta. Rakendus salvestab brauserisse valitud töökoha, kujunduse ja kasutamise korral külalise ligipääsuandmed. Külalise meelde jäetud ligipääs aegub 30 päeva pärast; töökohast lahkumine eemaldab salvestatud ligipääsu. Ühises seadmes logi välja ja lahku töökohast, kui oled lõpetanud. Küpsiste või kohaliku salvestusruumi tühjendamine võib sind välja logida või eelistused lähtestada. Praegune rakenduse kood ei sisalda reklaamijälgijaid; majutus- ja autentimisteenused töötlevad siiski vajalikku tehnilist teavet."
+			},
+			{
+				"id": "section-8",
+				"title": "Rahvusvaheline töötlemine",
+				"body": "Pakkujad võivad andmeid töödelda väljaspool sinu riiki, sealhulgas väljaspool Euroopa Majanduspiirkonda. GDPR-i kohaldumisel peab edastamine põhinema kehtival mehhanismil, näiteks piisavuse otsusel või asjakohastel lepingulistel kaitsemeetmetel. Sinu andmetele kohalduvate pakkujate ja kaitsemeetmete kohta küsi meilt. Andmebaasi piirkondlik asukoht ei tähenda, et kõik pakkujad ja tugitegevused asuvad samas piirkonnas."
+			},
+			{
+				"id": "section-9",
+				"title": "Säilitamine ja kustutamine",
+				"body": "Konto- ja töökohaandmeid säilitatakse teenuse toimimiseks ja töökoha juhiste täitmiseks vajaliku aja jooksul. Töötaja deaktiveerimine eemaldab ligipääsu, kuid säilitab profiili ja ajaloolised seosed ega kustuta üldist Clerki kontot. Profiili eemaldamine ja konto kustutamine on eri toimingud. Organisatsiooni dokumentide või õigusnõuete jaoks võib osa ajaloost ja sisust säilida. Ajutised töötajamärkmete read aeguvad 24 tundi pärast viimast asjakohast salvestamist; märgiga ! read säilivad muutmise või kustutamiseni. Päringuid säilitatakse vastamiseks ja järeltegevuseks vajaliku aja ning ootenimekirja andmeid eemaldamise taotluse või nimekirja vajaduse lõppemiseni. Varukoopiad ja pakkujate logid võivad säilida vastavate säilitustsüklite järgi. Kustutamiseks või täpse säilitusinfo saamiseks võta ühendust."
+			},
+			{
+				"id": "section-10",
+				"title": "Sinu õigused",
+				"body": "Kohalduva õiguse alusel saad taotleda andmetega tutvumist, parandamist, kustutamist, töötlemise piiramist ja ülekandmist, esitada õigustatud huvil põhinevale töötlemisele vastuväite ning võtta nõusoleku tagasi varasema töötlemise õiguspärasust mõjutamata. Võime kontrollida sinu isikut. Tööalaste andmete puhul pöördu esmalt töökoha poole; aitame seda tema nimel töödeldavate andmete taotlustega. Meie enda töötlemise kohta kirjuta aadressile lukasjaager@gmail.com. Võid esitada kaebuse kohalikule järelevalveasutusele, Eestis Andmekaitse Inspektsioonile (aki.ee). GDPR-i taotlustele vastatakse üldjuhul ühe kuu jooksul, arvestades lubatud pikendusi."
+			},
+			{
+				"id": "section-11",
+				"title": "Turvalisus, automaatotsused ja lapsed",
+				"body": "Ligipääsu piiramiseks kasutame autentimist, töökoha õigusi ja muid tehnilisi meetmeid. Ükski veebiteenus ei saa tagada täielikku turvalisust. Teata kahtlustatavast loata ligipääsust meile ja töökoha omanikule. Workhal ise ei tee töötajate kohta üksnes automaatseid otsuseid, millel oleks õiguslik või samaväärne oluline mõju. Teenus on mõeldud töökohal kasutamiseks ega ole suunatud lastele; organisatsioon vastutab noorte töötajate õiguspärase kasutuse ja asjakohase juhendamise eest."
+			},
+			{
+				"id": "section-12",
+				"title": "Muudatused ja kontakt",
+				"body": "Uuendame poliitikat teenuse või töötlemise muutumisel ja näitame siin muutmise kuupäeva. Vajaduse korral teavitame eraldi või küsime nõusolekut. Privaatsusküsimustes võta ühendust Lukas Jäägeriga aadressil lukasjaager@gmail.com."
+			}
+		]
+	}
+}

@@ -1,0 +1,166 @@
+{
+	"en": {
+		"title": "Terms of service",
+		"updated": "Last updated 29 September 2026",
+		"intro": "The rules for using Workhal’s workplace portal and beta service.",
+		"sections": [
+			{
+				"id": "section-1",
+				"title": "Service and operator",
+				"body": "These terms cover the Workhal website and workplace application, operated by Lukas Jääger, contact: lukasjaager@gmail.com. Workhal helps teams share workplace knowledge, files, announcements and schedules, manage access and coordinate shift trades. References to “you” mean the person using the service and, where you are authorized to act for an organization, that organization. A separately signed agreement takes priority over conflicting provisions of these terms."
+			},
+			{
+				"id": "section-2",
+				"title": "Agreement and authority",
+				"body": "Use Workhal only if you can enter into this agreement or are authorized to use it under your organization’s agreement and applicable law. A person creating or administering a workplace must have authority to do so for that organization. By registering or using the service after these terms have been made available to you, you agree to them to the extent permitted by law. If you do not agree, stop using the service and contact us about your account or data."
+			},
+			{
+				"id": "section-3",
+				"title": "Beta access and availability",
+				"body": "Workhal is currently a beta service. Access to creating or managing organizations may be limited to approved testers, and approval may be withdrawn. Features, limits and availability may change; errors, interruptions and data loss are possible. Keep independent copies of essential records and a fallback process for shifts and critical instructions. There is no uptime or support-response guarantee unless separately agreed. Beta access does not guarantee future access or a particular feature."
+			},
+			{
+				"id": "section-4",
+				"title": "Accounts and permissions",
+				"body": "Provide accurate account information, protect sign-in methods and use only your own authorized access. Tell us promptly about suspected compromise. Owners are responsible for inviting the right people, reviewing access, assigning suitable roles, and removing access when no longer needed. An account or invitation does not automatically grant management rights. Do not bypass role restrictions or use another organization’s data without authorization."
+			},
+			{
+				"id": "section-5",
+				"title": "Public workplaces, links and shared devices",
+				"body": "Owners choose what to publish and how people enter their workplace. Public content is accessible to anyone with the address. Join codes and private links are transferable access credentials, not proof of employment or identity. Distribute them only to intended recipients, rotate them after suspected disclosure, and review what is visible without an account. Sign out and leave the workplace on shared devices. Access changes cannot retract information already copied or downloaded."
+			},
+			{
+				"id": "section-6",
+				"title": "Your content and our permission to process it",
+				"body": "You or your licensors retain ownership of content you provide. You grant Workhal the limited permission needed to host, store, copy, display, transmit and process that content to provide, secure and maintain the service and enabled integrations. You must have the rights and lawful basis to upload and share it. This permission does not transfer ownership or give us a right to sell your content. Necessary backup and legal retention may continue after deletion as described in the privacy policy and applicable agreements."
+			},
+			{
+				"id": "section-7",
+				"title": "Workplace and employment responsibilities",
+				"body": "The workplace remains responsible for the accuracy and legality of its instructions, staffing, schedules, approvals, notices and employment decisions. Check imported schedules and trade outcomes against the source system before relying on them. An announcement acknowledgement records an in-app action; it is not proof of understanding, training completion or legal consent. Workhal is not an emergency service, payroll authority or substitute for health, safety, employment or professional advice. Do not rely on it as the sole record for safety-critical operations."
+			},
+			{
+				"id": "section-8",
+				"title": "Acceptable use",
+				"body": "Do not use the service for unlawful, discriminatory, harassing, fraudulent or infringing content or conduct. Do not upload malware, attempt unauthorized access, expose other people’s private information, disrupt the service, evade access restrictions or scrape data you are not entitled to access. Do not upload sensitive personal information or confidential material unless the service is suitable for it and you have the necessary authorization and safeguards. Security research must avoid accessing other users’ data or disrupting service; report suspected vulnerabilities privately."
+			},
+			{
+				"id": "section-9",
+				"title": "Third-party services",
+				"body": "Sign-in, hosting, storage, email and optional integrations depend on third-party providers. Their applicable terms and policies also govern their services. Only connect accounts you are authorized to connect. An enabled Deputy connection can import roster data and submit approved shift-assignment changes. Verify the affected employees and shifts before approval. Disconnecting a service stops future integration access according to its controls but does not automatically delete information already imported or reverse changes already made."
+			},
+			{
+				"id": "section-10",
+				"title": "Privacy and organizational data",
+				"body": "Our privacy policy explains personal data handling. Workplace owners must inform employees about their use of Workhal, establish a lawful basis, set suitable access and retention rules, and respond to requests concerning workplace data. Where Workhal processes personal data on an organization’s behalf, the required data-processing agreement and lawful transfer arrangements must be in place. These terms and the privacy policy alone are not a substitute for that agreement."
+			},
+			{
+				"id": "section-11",
+				"title": "Fees and changes to commercial terms",
+				"body": "Any fees, payment obligations, service limits and cancellation terms must be disclosed and agreed before they apply. A request for a demo, waitlist place or beta account does not by itself authorize a charge. If paid plans or paid setup assistance are introduced, their terms will be provided separately before purchase; we will not silently convert a free beta into a paid subscription."
+			},
+			{
+				"id": "section-12",
+				"title": "Suspension, leaving and deletion",
+				"body": "You may stop using Workhal at any time. Contact your workplace owner about membership and content, and contact us about closing your account or requesting data. We may restrict or suspend access for a material breach, security risk, legal requirement or ending the beta, and give notice and an opportunity to resolve issues where reasonably possible. Urgent security or legal situations may require immediate action. Before leaving, arrange copies of records you are entitled to keep. Deactivation, profile removal, account deletion and workplace deletion are distinct; none should be assumed to delete every organizational record or backup."
+			},
+			{
+				"id": "section-13",
+				"title": "Warranties and liability",
+				"body": "To the extent permitted by applicable law, the beta is provided as available without a promise that it will be uninterrupted, error-free or fit for a particular purpose. To that same extent, Workhal is not responsible for indirect losses or lost profits resulting from use of the service. Nothing in these terms excludes liability or remedies that cannot lawfully be excluded, including mandatory consumer rights, liability for fraud or intentional misconduct, or applicable data-protection rights. Any separately agreed service commitments remain effective."
+			},
+			{
+				"id": "section-14",
+				"title": "Changes, disputes and general terms",
+				"body": "We may revise these terms, show a new revision date and provide appropriate notice of material changes. Changes do not remove accrued rights or retroactively impose fees. Contact lukasjaager@gmail.com first so we can try to resolve concerns. Applicable mandatory law and the competent courts determined by that law remain available; these terms do not require arbitration or waive statutory rights. If one provision is unenforceable, the remaining provisions continue to apply. Failure to enforce a provision immediately does not waive it."
+			},
+			{
+				"id": "section-15",
+				"title": "Contact",
+				"body": "For service, access, legal or security questions, contact Lukas Jääger at lukasjaager@gmail.com. For workplace instructions, schedules and employment-related matters, contact your workplace administrator."
+			}
+		]
+	},
+	"et": {
+		"title": "Kasutustingimused",
+		"updated": "Viimati uuendatud 29. septembril 2026",
+		"intro": "Workhali töökoha portaali ja beetaversiooni kasutamise tingimused.",
+		"sections": [
+			{
+				"id": "section-1",
+				"title": "Teenus ja haldaja",
+				"body": "Need tingimused kehtivad Workhali veebilehele ja töökoha rakendusele, mida haldab Lukas Jääger, kontakt lukasjaager@gmail.com. Workhal aitab jagada tööteadmisi, faile, teateid ja graafikuid, hallata ligipääsu ning korraldada vahetuste vahetamist. „Sina” tähendab kasutajat ja organisatsiooni nimel volitatud tegutsemisel ka seda organisatsiooni. Eraldi allkirjastatud kokkulepe on vastuolu korral nende tingimuste suhtes ülimuslik."
+			},
+			{
+				"id": "section-2",
+				"title": "Nõustumine ja volitus",
+				"body": "Kasuta Workhali ainult siis, kui saad selle kokkuleppe sõlmida või oled volitatud teenust kasutama organisatsiooni kokkuleppe ja kohalduva õiguse alusel. Töökoha looja või haldaja peab olema organisatsiooni poolt volitatud. Konto loomise või teenuse kasutamisega pärast tingimuste kättesaadavaks tegemist nõustud nendega seadusega lubatud ulatuses. Kui sa ei nõustu, lõpeta kasutamine ja võta konto või andmete asjus ühendust."
+			},
+			{
+				"id": "section-3",
+				"title": "Beetaversioon ja kättesaadavus",
+				"body": "Workhal on praegu beetaversioon. Organisatsiooni loomine ja haldamine võib olla lubatud ainult heakskiidetud testijatele ning heakskiidu võib tagasi võtta. Funktsioonid, piirangud ja kättesaadavus võivad muutuda; võimalikud on vead, katkestused ja andmekadu. Hoia olulistest andmetest sõltumatuid koopiaid ning varuplaani graafikute ja kriitiliste juhiste jaoks. Kui pole eraldi kokku lepitud, ei tagata kindlat tööaega ega toe vastamisaega. Beetaversiooni ligipääs ei taga tulevast ligipääsu ega konkreetset funktsiooni."
+			},
+			{
+				"id": "section-4",
+				"title": "Kontod ja õigused",
+				"body": "Esita õiged kontoandmed, kaitse sisselogimisvahendeid ja kasuta üksnes enda volitatud ligipääsu. Teata kahtlustatavast konto kompromiteerimisest viivitamata. Omanik vastutab õigete inimeste kutsumise, ligipääsu ülevaatamise, sobivate rollide määramise ja mittevajaliku ligipääsu eemaldamise eest. Konto või kutse ei anna automaatselt haldusõigusi. Ära mine õigustest mööda ega kasuta teise organisatsiooni andmeid loata."
+			},
+			{
+				"id": "section-5",
+				"title": "Avalik sisu, lingid ja ühised seadmed",
+				"body": "Omanik valib avaldatava sisu ja töökohta sisenemise viisi. Avalik sisu on kättesaadav kõigile, kellel on aadress. Liitumiskood ja privaatne link on edasiantavad ligipääsuandmed, mitte isiku ega töösuhte tõend. Jaga neid ainult ettenähtud saajatega, vaheta need võimaliku lekkimise järel ning kontrolli kontota nähtavat sisu. Ühises seadmes logi välja ja lahku töökohast. Ligipääsu muutmine ei võta tagasi juba kopeeritud või alla laaditud teavet."
+			},
+			{
+				"id": "section-6",
+				"title": "Sisu omandiõigus ja töötlemise luba",
+				"body": "Sinu või litsentsiandja omandiõigus lisatud sisule säilib. Annad Workhalile piiratud loa sisu majutamiseks, salvestamiseks, kopeerimiseks, kuvamiseks, edastamiseks ja töötlemiseks ulatuses, mis on vajalik teenuse ja aktiveeritud ühenduste osutamiseks, turvamiseks ning hooldamiseks. Sul peavad olema sisu lisamiseks ja jagamiseks õigused ning õiguslik alus. Luba ei anna meile omandiõigust ega õigust sinu sisu müüa. Vajalik varukoopiate ja seadusest tulenev säilitamine võib jätkuda ka pärast kustutamist vastavalt privaatsuspoliitikale ja lepingutele."
+			},
+			{
+				"id": "section-7",
+				"title": "Töökoha ja töösuhte vastutus",
+				"body": "Töökoht vastutab juhiste, töökorralduse, graafikute, kinnituste, teadete ja tööalaste otsuste õigsuse ning seaduslikkuse eest. Kontrolli imporditud graafikuid ja vahetuste tulemusi algallikas enne neile tuginemist. Teate lugemiskinnitus salvestab rakenduses tehtud toimingu; see ei tõenda arusaamist, koolituse läbimist ega õiguslikku nõusolekut. Workhal ei ole hädaabiteenus, palgaarvestuse alusallikas ega asenda tööohutus-, õigus- või muud asjatundlikku nõu. Ära kasuta seda ohutuskriitiliste tegevuste ainsa andmeallikana."
+			},
+			{
+				"id": "section-8",
+				"title": "Lubatud kasutus",
+				"body": "Ära kasuta teenust ebaseadusliku, diskrimineeriva, ahistava, pettusliku või õigusi rikkuva sisu ega tegevuse jaoks. Ära laadi üles pahavara, proovi saada loata ligipääsu, avalda teiste eraandmeid, häiri teenust, väldi ligipääsupiiranguid ega kogu andmeid, millele sul õigust pole. Ära lisa tundlikke isikuandmeid ega konfidentsiaalset teavet, kui teenus selleks ei sobi või sul puuduvad vajalik volitus ja kaitsemeetmed. Turvauuringud ei tohi pääseda ligi teiste andmetele ega häirida teenust; teata võimalikest nõrkustest privaatselt."
+			},
+			{
+				"id": "section-9",
+				"title": "Kolmandate osapoolte teenused",
+				"body": "Sisselogimine, majutus, salvestus, e-post ja valikulised ühendused sõltuvad teistest teenusepakkujatest, kelle teenustele kehtivad ka nende tingimused ja poliitikad. Ühenda ainult kontosid, mille kasutamiseks sul on volitus. Deputy ühendus võib importida graafikuid ja edastada kinnitatud muudatusi vahetuste töötajates. Enne kinnitamist kontrolli inimesi ja vahetusi. Ühenduse katkestamine peatab edasise ligipääsu vastavate seadete järgi, kuid ei kustuta automaatselt imporditud andmeid ega võta tagasi tehtud muudatusi."
+			},
+			{
+				"id": "section-10",
+				"title": "Privaatsus ja organisatsiooni andmed",
+				"body": "Isikuandmete töötlemist selgitab privaatsuspoliitika. Töökoha omanik peab teavitama töötajaid Workhali kasutamisest, määrama õigusliku aluse, sobivad ligipääsu- ja säilitusreeglid ning vastama töökohaandmete taotlustele. Kui Workhal töötleb organisatsiooni nimel isikuandmeid, peavad olemas olema nõutav andmetöötlusleping ja õiguspärased edastuskorraldused. Need tingimused ja privaatsuspoliitika üksi seda lepingut ei asenda."
+			},
+			{
+				"id": "section-11",
+				"title": "Tasud ja äriliste tingimuste muutmine",
+				"body": "Tasud, maksekohustused, teenusepiirangud ja lõpetamistingimused tuleb avaldada ning kokku leppida enne nende rakendumist. Demo, ootenimekirja koha või beetakonto taotlus ei anna iseenesest luba tasu võtta. Tasuliste pakettide või seadistusabi lisamisel esitatakse tingimused enne ostu eraldi; tasuta beetaversiooni ei muudeta märkamatult tasuliseks tellimuseks."
+			},
+			{
+				"id": "section-12",
+				"title": "Peatamine, lahkumine ja kustutamine",
+				"body": "Võid Workhali kasutamise igal ajal lõpetada. Liikmesuse ja sisu kohta pöördu töökoha omaniku, konto sulgemise või andmetaotluse kohta meie poole. Võime ligipääsu piirata või peatada olulise rikkumise, turvariski, seadusest tuleneva nõude või beetaversiooni lõppemise korral ning mõistliku võimaluse korral teavitame ja anname võimaluse probleem lahendada. Kiire turva- või õiguslik olukord võib nõuda kohest tegutsemist. Enne lahkumist korralda nende andmete koopiad, mida sul on õigus säilitada. Deaktiveerimine, profiili eemaldamine, konto ja töökoha kustutamine on erinevad toimingud ega tähenda automaatselt kõigi organisatsiooniandmete või varukoopiate kustutamist."
+			},
+			{
+				"id": "section-13",
+				"title": "Garantiid ja vastutus",
+				"body": "Kohalduva õigusega lubatud ulatuses pakutakse beetaversiooni olemasoleval kujul, lubamata katkestusteta või veavaba tööd ega sobivust kindlaks eesmärgiks. Samas ulatuses ei vastuta Workhal kasutamisest tuleneva kaudse kahju ega saamata jäänud tulu eest. Tingimused ei välista vastutust ega õiguskaitsevahendeid, mida seadus ei luba välistada, sealhulgas kohustuslikke tarbijaõigusi, vastutust pettuse või tahtliku rikkumise eest ega andmekaitseõigusi. Eraldi kokkulepitud teenusekohustused jäävad kehtima."
+			},
+			{
+				"id": "section-14",
+				"title": "Muudatused, vaidlused ja üldtingimused",
+				"body": "Võime tingimusi uuendada, märkides uue muutmise kuupäeva ja teavitades olulistest muudatustest asjakohaselt. Muudatused ei kõrvalda juba tekkinud õigusi ega kehtesta tagasiulatuvaid tasusid. Küsimuste lahendamiseks kirjuta esmalt aadressile lukasjaager@gmail.com. Kohustuslik õigus ja selle järgi pädevad kohtud jäävad kättesaadavaks; tingimused ei nõua vahekohtumenetlust ega loobumist seaduslikest õigustest. Ühe sätte kehtetus ei muuda ülejäänuid kehtetuks. Sätte kohese jõustamata jätmine ei tähenda sellest loobumist."
+			},
+			{
+				"id": "section-15",
+				"title": "Kontakt",
+				"body": "Teenuse, ligipääsu, õigus- või turvaküsimustes võta ühendust Lukas Jäägeriga aadressil lukasjaager@gmail.com. Tööjuhiste, graafikute ja töösuhte küsimustes pöördu töökoha haldaja poole."
+			}
+		]
+	}
+}

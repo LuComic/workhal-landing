@@ -11,7 +11,8 @@
 		{ href: `${homeHref}#questions`, label: m.nav_questions() },
 		{ href: localizeHref('/about', { locale }), label: m.nav_about() },
 		{ href: localizeHref('/contact', { locale }), label: m.nav_contact() },
-		{ href: localizeHref('/privacy', { locale }), label: m.nav_privacy() }
+		{ href: localizeHref('/privacy', { locale }), label: m.nav_privacy() },
+		{ href: localizeHref('/tos', { locale }), label: m.nav_tos() }
 	];
 </script>
 

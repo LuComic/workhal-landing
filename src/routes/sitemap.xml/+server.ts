@@ -1,6 +1,6 @@
 import type { RequestHandler } from './$types';
 
-const pagePaths = ['', '/about', '/contact', '/privacy'] as const;
+const pagePaths = ['', '/about', '/contact', '/privacy', '/tos'] as const;
 const languages = ['en', 'et'] as const;
 
 const escapeXml = (value: string) =>
